@@ -9,7 +9,10 @@ public class GameManager : MonoBehaviour
 
     public static GameManager instance { get; private set; }
 
+    //objetos guardados
     public int score = 0;
+
+    public int keys = 0;
 
     private int vidas = 3;
 
@@ -17,6 +20,12 @@ public class GameManager : MonoBehaviour
     {
         this.score += score;
         hud.UpadateScore(score);
+    }
+
+    public void UpdateKeys(int keys)
+    {
+        this.keys += keys;
+        hud.UpdateKeys(this.keys);
     }
 
     public void Awake()

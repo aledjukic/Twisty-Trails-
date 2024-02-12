@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HUD : MonoBehaviour
 {
 
+    public Text textoLlaves;
     public GameObject[] vidas;
     private bool corazonParpadeando = false;
 
@@ -39,6 +41,19 @@ public class HUD : MonoBehaviour
     public void activeVida(int inidce)
     {
         vidas[inidce].SetActive(true);
+    }
+
+    public void UpdateKeys(int keys)
+    {
+        if (textoLlaves != null)
+        {
+            textoLlaves.text = keys.ToString();
+        }
+        else
+        {
+            Debug.LogWarning("La referencia al objeto de texto 'textoLlaves' no está asignada.");
+        }
+
     }
 
     IEnumerator ParpadearCorazon()
