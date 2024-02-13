@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TwistyTrails.Assets.scrips;
 
 public class HUD : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class HUD : MonoBehaviour
     public Text textoLlaves;
     public GameObject[] vidas;
     private bool corazonParpadeando = false;
+
+    public GameObject[] InventarySlots;
 
     public void Update()
     {
@@ -28,11 +31,6 @@ public class HUD : MonoBehaviour
         }
     }
 
-    public void UpadateScore(int score)
-    {
-        Debug.Log("Score: " + score);
-    }
-
     public void desctiveVida(int inidce)
     {
         vidas[inidce].SetActive(false);
@@ -43,7 +41,7 @@ public class HUD : MonoBehaviour
         vidas[inidce].SetActive(true);
     }
 
-    public void UpdateKeys(int keys)
+    public void UpdateScore(int keys)
     {
         if (textoLlaves != null)
         {
@@ -54,6 +52,20 @@ public class HUD : MonoBehaviour
             Debug.LogWarning("La referencia al objeto de texto 'textoLlaves' no está asignada.");
         }
 
+    }
+
+    public void AddItem(Item item)
+    {
+        for (int i = 0; i < InventarySlots.Length; i++)
+        {
+            if (InventarySlots[i].GetComponent<SlotUsed>().isUsed == false)
+            {
+                Debug.Log(item.nombre + " añadida al inventario");
+                InventarySlots[i].GetComponent<Image>().sprite = item.imagen;
+                InventarySlots[i].GetComponent<SlotUsed>().isUsed = true;
+                break;
+            }
+        }
     }
 
     IEnumerator ParpadearCorazon()

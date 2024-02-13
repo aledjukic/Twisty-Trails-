@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TwistyTrails.Assets.scrips;
 
 public class GameManager : MonoBehaviour
 {
@@ -12,25 +13,38 @@ public class GameManager : MonoBehaviour
     //objetos guardados
     public int score = 0;
 
-    public int keys = 0;
-
     private int vidas = 3;
+
+    //inventario
+    public Item[] items;
+
+    public void Start()
+    {
+        items = new Item[3];
+    }
+
+    public void AddItem(Item item)
+    {
+        for (int i = 0; i < items.Length; i++)
+        {
+            if (items[i] == null)
+            {
+                items[i] = item;
+                hud.AddItem(item);
+                break;
+            }
+        }
+    }
 
     public void UpdateScore(int score)
     {
         this.score += score;
-        hud.UpadateScore(score);
-    }
-
-    public void UpdateKeys(int keys)
-    {
-        this.keys += keys;
-        hud.UpdateKeys(this.keys);
+        hud.UpdateScore(this.score);
     }
 
     public void Awake()
     {
-        if(instance == null)
+        if (instance == null)
         {
             instance = this;
         }
@@ -40,12 +54,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
-   public void restoreVida()
+    public void restoreVida()
     {
-        if(vidas < 3)
+        if (vidas < 3)
         {
             vidas++;
-            hud.activeVida(vidas-1);
+            hud.activeVida(vidas - 1);
         }
         else
         {
@@ -61,3 +75,9 @@ public class GameManager : MonoBehaviour
     }
 
 }
+// Path: Assets/scrips/Item.cs
+// Compare this snippet from Assets/scrips/Player.cs:
+// using System.Collections;
+// using System.Collections.Generic;
+// using UnityEngine;
+//
