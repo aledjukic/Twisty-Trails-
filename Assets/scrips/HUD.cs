@@ -13,6 +13,8 @@ public class HUD : MonoBehaviour
 
     public GameObject[] InventarySlots;
 
+    public Sprite voidPanel;
+
     public void Update()
     {
         // Verifica si queda solo una vida y activa el parpadeo del corazón
@@ -41,18 +43,10 @@ public class HUD : MonoBehaviour
         vidas[inidce].SetActive(true);
     }
 
-    public void RemoveItem(Item item)
+    public void RemoveItem(Item item,int index)
     {
-        for (int i = 0; i < InventarySlots.Length; i++)
-        {
-            if (InventarySlots[i].GetComponent<SlotUsed>().isUsed == true)
-            {
-                Debug.Log(item.nombre + " removida del inventario");
-                InventarySlots[i].GetComponent<Image>().sprite = null;
-                InventarySlots[i].GetComponent<SlotUsed>().isUsed = false;
-                break;
-            }
-        }
+        InventarySlots[index].GetComponent<Image>().sprite = voidPanel;
+        InventarySlots[index].GetComponent<SlotUsed>().isUsed = false;
     }   
 
     public void UpdateScore(int keys)

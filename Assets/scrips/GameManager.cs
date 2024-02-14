@@ -24,7 +24,9 @@ public class GameManager : MonoBehaviour
     }
 
     public void AddItem(Item item)
-    {
+    {   //cuando se añade un objeto al inventario aumenta el score
+        this.score += item.score;
+        hud.UpdateScore(score);
         for (int i = 0; i < items.Length; i++)
         {
             if (items[i] == null)
@@ -43,7 +45,7 @@ public class GameManager : MonoBehaviour
             if (items[i] != null && items[i].nombre == item.nombre)
             {
                 items[i] = null;
-                hud.RemoveItem(item);
+                hud.RemoveItem(item, i);
                 break;
             }
         }

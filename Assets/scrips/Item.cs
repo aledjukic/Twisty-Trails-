@@ -12,6 +12,7 @@ namespace TwistyTrails.Assets.scrips
         public string nombre;
         public string descripcion;
         public Sprite imagen; // Si quieres guardar una imagen asociada al objeto
+        public int score;
     }
 
 
