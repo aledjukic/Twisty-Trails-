@@ -133,7 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 134588860}
   - component: {fileID: 134588859}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: Grid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -182,7 +182,7 @@ GameObject:
   - component: {fileID: 601605141}
   - component: {fileID: 601605143}
   - component: {fileID: 601605142}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: Tilemap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5072,7 +5072,7 @@ GameObject:
   - component: {fileID: 810247000}
   - component: {fileID: 810247002}
   - component: {fileID: 810247001}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: Void
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8019,7 +8019,7 @@ GameObject:
   - component: {fileID: 1047997584}
   - component: {fileID: 1047997583}
   - component: {fileID: 1047997582}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: CollisionObjects
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10231,7 +10231,7 @@ GameObject:
   - component: {fileID: 1059057173}
   - component: {fileID: 1059057175}
   - component: {fileID: 1059057174}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: GroundTop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11194,7 +11194,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7325956818749018589, guid: fb08ee6c31fbcac46acea64c7cc391c7, type: 3}
       propertyPath: m_Layer
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11203,6 +11203,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7325956818749018589, guid: fb08ee6c31fbcac46acea64c7cc391c7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4395829132079855458}
+    - targetCorrespondingSourceObject: {fileID: 7325956818749018589, guid: fb08ee6c31fbcac46acea64c7cc391c7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4395829132079855459}
   m_SourcePrefab: {fileID: 100100000, guid: fb08ee6c31fbcac46acea64c7cc391c7, type: 3}
 --- !u!1 &4395829132079855457 stripped
 GameObject:
@@ -11221,7 +11224,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8de42822086aa0d45bccbb9f189ee86b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 4395829132079855459}
   movSpeed: 3
+  isMoving: 0
+--- !u!95 &4395829132079855459
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4395829132079855457}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: aafba95725ad75e46865389ea65c8c1b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
