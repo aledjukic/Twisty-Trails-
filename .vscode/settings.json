@@ -56,5 +56,6 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Twisty-Trails-.sln"
+    "dotnet.defaultSolution": "Twisty-Trails-.sln",
+    "dotnet.preferCSharpExtension": true
 }
