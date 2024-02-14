@@ -41,6 +41,20 @@ public class HUD : MonoBehaviour
         vidas[inidce].SetActive(true);
     }
 
+    public void RemoveItem(Item item)
+    {
+        for (int i = 0; i < InventarySlots.Length; i++)
+        {
+            if (InventarySlots[i].GetComponent<SlotUsed>().isUsed == true)
+            {
+                Debug.Log(item.nombre + " removida del inventario");
+                InventarySlots[i].GetComponent<Image>().sprite = null;
+                InventarySlots[i].GetComponent<SlotUsed>().isUsed = false;
+                break;
+            }
+        }
+    }   
+
     public void UpdateScore(int keys)
     {
         if (textoLlaves != null)

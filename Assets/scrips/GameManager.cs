@@ -36,6 +36,33 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void RemoveItem(Item item)
+    {
+        for (int i = 0; i < items.Length; i++)
+        {
+            if (items[i] != null && items[i].nombre == item.nombre)
+            {
+                items[i] = null;
+                hud.RemoveItem(item);
+                break;
+            }
+        }
+    }
+
+    //verifica si tienes el objeto en el inventario// verifica si tienes el objeto en el inventario
+    public bool CheckItem(Item item)
+    {
+        for (int i = 0; i < items.Length; i++)
+        {
+            if (items[i] != null && items[i].nombre == item.nombre)
+            {
+                return true;
+            }
+        }
+        Debug.Log("No tienes el objeto en el inventario");
+        return false;
+    }
+
     public void UpdateScore(int score)
     {
         this.score += score;
