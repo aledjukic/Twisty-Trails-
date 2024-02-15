@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Yargen.unity
     guid: 01d6d057f71a954478044b92654471be
+  - enabled: 1
+    path: Assets/Scenes/Tutorial.unity
+    guid: 8b1015169dafa2049b38fdf69bbc5e2e
   m_configObjects: {}
