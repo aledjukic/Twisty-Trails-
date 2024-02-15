@@ -123,6 +123,16 @@ public class GameManager : MonoBehaviour
         Debug.Log("Vidas: " + vidas);
     }
 
+    public void ocultarInventario()
+    {
+        hud.ocultarInventario();
+    }
+
+    public void mostrarInventario()
+    {
+        hud.mostrarInventario();
+    }
+
 }
 // Path: Assets/scrips/Item.cs
 // Compare this snippet from Assets/scrips/Player.cs:

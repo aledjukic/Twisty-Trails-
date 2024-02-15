@@ -27,6 +27,7 @@ public class Dialogue : MonoBehaviour
         {
             if (!didDialogueStart)
             {
+                GameManager.instance.ocultarInventario();
                 StartDialogue();
             }
             else if(dialogueText.text == dialogueLines[lineIndex])
@@ -64,6 +65,7 @@ public class Dialogue : MonoBehaviour
             dialoguePanel.SetActive(false);
             dialogueMark.SetActive(true);
             Time.timeScale = 1f;
+            GameManager.instance.mostrarInventario(); 
         }
     }
 

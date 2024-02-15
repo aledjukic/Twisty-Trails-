@@ -99,4 +99,20 @@ public class HUD : MonoBehaviour
         }
     }
 
+    public void ocultarInventario()
+    {
+        for (int i = 0; i < InventarySlots.Length; i++)
+        {
+            InventarySlots[i].SetActive(false);
+        }
+    }
+
+    public void mostrarInventario()
+    {
+        for (int i = 0; i < InventarySlots.Length; i++)
+        {
+            InventarySlots[i].SetActive(true);
+        }
+    }
+
 }
