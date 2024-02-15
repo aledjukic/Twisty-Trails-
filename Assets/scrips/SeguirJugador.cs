@@ -15,8 +15,12 @@ public class SeguirJugador : MonoBehaviour
         // Calcula la posición a la que la cámara debería moverse
         Vector3 posicionDeseada = jugador.position + offset;
 
+        posicionDeseada.z = -10;
+
         // Interpola suavemente la posición actual de la cámara hacia la posición deseada
         Vector3 posicionSuavizada = Vector3.Lerp(transform.position, posicionDeseada, smoothSpeed);
+
+        posicionSuavizada.z = -10;
 
         // Asigna la nueva posición suavizada a la cámara
         transform.position = posicionSuavizada;
