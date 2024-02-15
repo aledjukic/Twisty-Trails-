@@ -8284,11 +8284,11 @@ MonoBehaviour:
   dialoguePanel: {fileID: 1272724814}
   dialogueText: {fileID: 1317614453}
   dialogueLines:
-  - 'Muevete con WASD
+  - 'Muevete con WASD.
 
 '
-  typingTime: 0.04
-  readingTime: 0
+  - "Interact\xFAa con tu alrededor haciendo click izquierdo."
+  typingTime: 0.09
   narratorVoice: {fileID: 8300000, guid: a5293d4f8bdfc4246881f9d210e9f912, type: 3}
   charsToSound: 1
 --- !u!82 &817503866
