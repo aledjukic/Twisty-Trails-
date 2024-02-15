@@ -9,6 +9,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
    public Animator animator;
+
+   private bool isDead;
    public float movSpeed;
    float speedX, speedY;
    public bool isMoving;
@@ -23,7 +25,12 @@ public class PlayerController : MonoBehaviour
 
     // Update is called once per frame
    private void Update() {
-        
+
+         if(isDead){
+               animator.SetBool("isDead", isDead);
+               return;
+         }  
+      
         speedX = Input.GetAxisRaw("Horizontal") * movSpeed;
         speedY = Input.GetAxisRaw("Vertical") * movSpeed;
 
@@ -61,6 +68,9 @@ public class PlayerController : MonoBehaviour
       rb.velocity = UnityEngine.Vector2.zero;
     }
 
-    
+    public void killPlayer(){
+      isDead = true;
+    }
+
     
 }

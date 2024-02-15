@@ -15,21 +15,34 @@ public class HUD : MonoBehaviour
 
     public Sprite voidPanel;
 
+    private bool isDead;
+
     public void Update()
     {
-        // Verifica si queda solo una vida y activa el parpadeo del corazón
-        if (!vidas[1].activeSelf && !corazonParpadeando)
+        //si todas las vidas estan desactivadas no se ejecuta
+        if (vidas[0].activeSelf == false && vidas[1].activeSelf == false && vidas[2].activeSelf == false)
         {
-            Debug.Log("Corazon parpadeando");
-            corazonParpadeando = true;
-            StartCoroutine(ParpadearCorazon());
+            isDead = true;
         }
-        // Si se recupera una vida, desactiva el parpadeo del corazón
-        if (vidas[1].activeSelf && corazonParpadeando)
+        if (isDead)
         {
-            Debug.Log("Corazon dejó de parpadear");
+            Debug.Log("Game Over");
             corazonParpadeando = false;
-            StopCoroutine(ParpadearCorazon());
+        }
+        else
+        {
+            // Verifica si queda solo una vida y activa el parpadeo del corazón
+            if (!vidas[1].activeSelf && !corazonParpadeando)
+            {
+                corazonParpadeando = true;
+                StartCoroutine(ParpadearCorazon());
+            }
+            // Si se recupera una vida, desactiva el parpadeo del corazón
+            if (vidas[1].activeSelf && corazonParpadeando)
+            {
+                corazonParpadeando = false;
+                StopCoroutine(ParpadearCorazon());
+            }
         }
     }
 
@@ -43,11 +56,11 @@ public class HUD : MonoBehaviour
         vidas[inidce].SetActive(true);
     }
 
-    public void RemoveItem(Item item,int index)
+    public void RemoveItem(Item item, int index)
     {
         InventarySlots[index].GetComponent<Image>().sprite = voidPanel;
         InventarySlots[index].GetComponent<SlotUsed>().isUsed = false;
-    }   
+    }
 
     public void UpdateScore(int keys)
     {

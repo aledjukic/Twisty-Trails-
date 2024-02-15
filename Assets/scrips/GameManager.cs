@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
 
     private int vidas = 3;
 
+    public PlayerController player;
+
     //inventario
     public Item[] items;
 
@@ -101,6 +103,15 @@ public class GameManager : MonoBehaviour
         Debug.Log("pierde una vida");
         vidas--;
         hud.desctiveVida(vidas);
+    }
+
+    public void Update()
+    {
+        if (vidas == 0)
+        {
+            Debug.Log("Game Over");
+            player.killPlayer();
+        }
     }
 
 }
