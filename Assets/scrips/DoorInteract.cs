@@ -35,43 +35,36 @@ public class DoorInteract : MonoBehaviour
 
     // Detecta si se presiona la tecla F
     // Detecta si se presiona la tecla F
-    void Update()
+   void Update()
+{
+    if (isOnTrigger && Input.GetKeyDown(KeyCode.F))
     {
-        if (isOnTrigger && Input.GetKeyDown(KeyCode.F))
+        // Busca si tienes la llave en el inventario
+        if (GameManager.instance.CheckItem(new Item { nombre = keyName, descripcion = "Llave", imagen = null }))
         {
-            // Busca si tienes la llave en el inventario
-            if (GameManager.instance.CheckItem(new Item { nombre = keyName, descripcion = "Llave", imagen = null }))
-            {
-                Debug.Log("Tienes la llave dorada");
-                //desactiva la colision de la puerta
-                Collider2D[] colliders = GetComponents<Collider2D>();
-                colliders[1].enabled = false;
-                // Cambia el sprite de la puerta a una puerta abierta en el mismo tamaño
-                SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
-                spriteRenderer.sprite = doorOpen;
+            Debug.Log("Tienes la llave dorada");
+            // Desactiva la colisión de la puerta
+            Collider2D[] colliders = GetComponents<Collider2D>();
+            colliders[1].enabled = false;
+            // Cambia el sprite de la puerta a una puerta abierta en el mismo tamaño
+            SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+            spriteRenderer.sprite = doorOpen;
 
-                // Ajusta la escala para que coincida con el tamaño original
-                float scaleX = transform.localScale.x;
-                float scaleY = transform.localScale.y;
+            // Calcula la diferencia en tamaño entre el nuevo sprite y el sprite original
+            float scaleX = spriteRenderer.bounds.size.x / transform.localScale.x;
+            float scaleY = spriteRenderer.bounds.size.y / transform.localScale.y;
 
-                // Obtiene el tamaño original del sprite
-                float originalWidth = spriteRenderer.sprite.bounds.size.x;
-                float originalHeight = spriteRenderer.sprite.bounds.size.y;
+            // Aplica la escala calculada
+            transform.localScale = new Vector3(scaleX, scaleY, 1f);
 
-                // Calcula la escala necesaria para que coincida con el tamaño original
-                float newScaleX = scaleX * (originalWidth / spriteRenderer.bounds.size.x);
-                float newScaleY = scaleY * (originalHeight / spriteRenderer.bounds.size.y);
-
-                // Aplica la escala calculada
-                transform.localScale = new Vector3(newScaleX, newScaleY, 1f);
-                //elimina la llave del inventario
-                GameManager.instance.RemoveItem(new Item { nombre = keyName, descripcion = "Llave", imagen = null });
-            }
-            else
-            {
-                Debug.Log("No tienes la llave dorada");
-            }
+            // Elimina la llave del inventario
+            GameManager.instance.RemoveItem(new Item { nombre = keyName, descripcion = "Llave", imagen = null });
+        }
+        else
+        {
+            Debug.Log("No tienes la llave dorada");
         }
     }
+}
 
 }

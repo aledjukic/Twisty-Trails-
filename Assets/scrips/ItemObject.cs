@@ -12,11 +12,13 @@ public class LLave : MonoBehaviour
 
     public string descripcion;
 
+    public int score = 0;
+
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.tag == "Player")
         {
-            GameManager.instance.AddItem(new Item { nombre = keyName, descripcion = descripcion, imagen = spriteRenderer});
+            GameManager.instance.AddItem(new Item { nombre = keyName, descripcion = descripcion, imagen = spriteRenderer, score = score});
             Debug.Log("Llave recogida");
             Destroy(gameObject);
         }
