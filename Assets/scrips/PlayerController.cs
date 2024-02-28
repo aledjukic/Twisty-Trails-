@@ -12,6 +12,11 @@ public class PlayerController : MonoBehaviour
 
    private bool isDead;
    public float movSpeed;
+
+   private float attackTime = .25f;
+   private float attackCounter = .25f;
+   private bool isAttacking;
+
    float speedX, speedY;
    public bool isMoving;
    Rigidbody2D rb;
@@ -32,6 +37,21 @@ public class PlayerController : MonoBehaviour
          StopMoving();
          animator.SetBool("isDead", isDead);
          return;
+      }
+      else if (isAttacking)
+      {
+         attackCounter -= Time.deltaTime;
+         if (attackCounter <= 0)
+         {
+            animator.SetBool("isAttacking", false);
+            isAttacking = false;
+         }
+      }
+      if (Input.GetKeyDown(KeyCode.E))
+      {
+         attackCounter = attackTime;
+         animator.SetBool("isAttacking", true);
+         isAttacking = true;
       }
       else
       {
