@@ -10,12 +10,16 @@ public class PlayerController : MonoBehaviour
 {
    public Animator animator;
 
+   private SwordController swordController;
+
    private bool isDead;
    public float movSpeed;
 
    private float attackTime = .25f;
    private float attackCounter = .25f;
    private bool isAttacking;
+
+   private bool hasSword = false;
 
    float speedX, speedY;
    public bool isMoving;
@@ -26,6 +30,8 @@ public class PlayerController : MonoBehaviour
    {
       rb = GetComponent<Rigidbody2D>();
       sr = GetComponent<SpriteRenderer>();
+      swordController = GameObject.Find("Sword").GetComponent<SwordController>();
+      
    }
 
    // Update is called once per frame
@@ -38,7 +44,7 @@ public class PlayerController : MonoBehaviour
          animator.SetBool("isDead", isDead);
          return;
       }
-      else if (isAttacking)
+      else if (isAttacking && hasSword == true)
       {
          attackCounter -= Time.deltaTime;
          if (attackCounter <= 0)
@@ -86,6 +92,12 @@ public class PlayerController : MonoBehaviour
                animator.SetBool("IsMoving", isMoving);
             }
          }
+         
+         bool sword = swordController.GetHasSword();
+         if(sword){
+         hasSword = true;
+         animator.SetBool("hasSword", hasSword);
+         }
 
       }
    }
@@ -100,6 +112,7 @@ public class PlayerController : MonoBehaviour
       else
       {
          rb.velocity = UnityEngine.Vector2.zero;
+         
       }
    }
 
