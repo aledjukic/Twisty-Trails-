@@ -8,6 +8,8 @@ public class Enemy : MonoBehaviour
     private Animator animator; // Referencia al componente Animator
     public bool isAnimated;
 
+    public int currentHealth = 9;
+    public int maxHealth = 9;
     public int vidaPerdidaFrame = 3; // El frame en el que se pierde vida
 
     void Start()
@@ -17,11 +19,10 @@ public class Enemy : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        //Debug.Log("Algo ha chocado con un enemigo");
-        //Debug.Log(other.gameObject.tag);
+        
         if(other.gameObject.tag == "Player")
         {
-            //Debug.Log("Player ha chocado con un enemigo");
+            
             GameManager.instance.lostVida();
         }
         //imprime el frame actual de la animación
@@ -39,6 +40,17 @@ public class Enemy : MonoBehaviour
             GameManager.instance.lostVida();
         }
     }
+
+    public void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+
+        if(currentHealth <= 0)
+        {
+            Destroy(this.gameObject);
+        }
+    }
+    
 
 
 }

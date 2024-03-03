@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class HurtEnemy : MonoBehaviour
 {
+    public int damage = 3;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,11 +17,15 @@ public class HurtEnemy : MonoBehaviour
         
     }
 
-   private void OnTriggerEnter2D (Collider2D other) 
+   private void OnTriggerEnter2D (Collider2D collision) 
     {
-        if(other.tag == "Enemy")
+        if(collision.tag == "Enemy")
         {
-            Destroy(other.gameObject);
+            Enemy enemy= collision.gameObject.GetComponent<Enemy>();
+            enemy.TakeDamage(damage);
+
         }
     }
+
+    
 }
