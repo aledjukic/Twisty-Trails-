@@ -6,51 +6,60 @@ public class Enemy : MonoBehaviour
 {
     
     private Animator animator; // Referencia al componente Animator
-    public bool isAnimated;
 
-    public int currentHealth = 9;
-    public int maxHealth = 9;
-    public int vidaPerdidaFrame = 3; // El frame en el que se pierde vida
+    private Transform target;
+    public Transform homePos;
+    public float speed;
+    
+    private float maxRange = .5f;
+    private float minRange = .125f; 
+
+    private SpriteRenderer sr;
+
+
+    Rigidbody2D rb;
 
     void Start()
     {
-        //animator = GetComponent<Animator>(); // Obtener el componente Animator
+        rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>(); 
+        sr = GetComponent<SpriteRenderer>();
+        target = FindObjectOfType<PlayerController>().transform;
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    void Update()
     {
+        if(Vector3.Distance(target.position, transform.position) <= maxRange && Vector3.Distance(target.position, transform.position) >= minRange)
+        { 
+            FollowPlayer();
+        }
+        else
+        {
+            GoHome();  
+        }
         
-        if(other.gameObject.tag == "Player")
-        {
-            
-            GameManager.instance.lostVida();
-        }
-        //imprime el frame actual de la animación
-        //Debug.Log(animator.GetCurrentAnimatorStateInfo(0).normalizedTime * animator.GetCurrentAnimatorStateInfo(0).length);
     }
-    
-    public void CheckFrame()
+
+    public void FollowPlayer()
     {
-
-            AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
-        // Si el frame actual de la animación es igual al frame donde se pierde vida
-         if (stateInfo.normalizedTime * stateInfo.length >= vidaPerdidaFrame)
-        {
-            // Lógica para quitar vida al jugador
-            GameManager.instance.lostVida();
-        }
+        sr.flipX = false; 
+        animator.SetBool("isMoving", true);
+        animator.SetFloat("MoveX", target.position.x - transform.position.x);
+        animator.SetFloat("MoveY", target.position.y - transform.position.y);
+        transform.position = Vector3.MoveTowards(transform.position, target.transform.position, speed * Time.deltaTime);
     }
 
-    public void TakeDamage(int damage)
+    public void GoHome()
     {
-        currentHealth -= damage;
-
-        if(currentHealth <= 0)
+        if(transform.position == homePos.position)
         {
-            Destroy(this.gameObject);
+            sr.flipX = false;
+        }
+        else
+        {
+            sr.flipX = true;
+            transform.position = Vector3.MoveTowards(transform.position, homePos.position, speed * Time.deltaTime);
         }
     }
-    
-
 
 }

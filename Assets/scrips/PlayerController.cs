@@ -63,7 +63,6 @@ public class PlayerController : MonoBehaviour
       }
       else
       {
-
          speedX = Input.GetAxisRaw("Horizontal") * movSpeed;
          speedY = Input.GetAxisRaw("Vertical") * movSpeed;
 

@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HurtEnemy : MonoBehaviour
+public class HurtPlayer : MonoBehaviour
 {
-    public int damage = 3;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,15 +16,11 @@ public class HurtEnemy : MonoBehaviour
         
     }
 
-   private void OnTriggerEnter2D (Collider2D collision) 
+    private void OnCollisionEnter2D(Collision2D other)
     {
-        if(collision.tag == "Enemy")
+        if(other.collider.tag == "Player")
         {
-            EnemyHealth enemy= collision.gameObject.GetComponent<EnemyHealth>();
-            enemy.TakeDamage(damage);
-
+            GameManager.instance.lostVida();
         }
     }
-
-    
 }
