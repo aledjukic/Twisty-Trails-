@@ -12,9 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/MenuInicial.unity
     guid: ef4dff52d1dc5bb4e98cf3f2355fb8f9
   - enabled: 1
-    path: Assets/Scenes/Yargen.unity
-    guid: 01d6d057f71a954478044b92654471be
-  - enabled: 1
     path: Assets/Scenes/Tutorial.unity
-    guid: 8b1015169dafa2049b38fdf69bbc5e2e
+    guid: e0353f4ac22dffb419faf9e785eae0dc
+  - enabled: 1
+    path: Assets/Scenes/Level 1.unity
+    guid: 25f32df44045a2e439d40f6b2b671f73
   m_configObjects: {}

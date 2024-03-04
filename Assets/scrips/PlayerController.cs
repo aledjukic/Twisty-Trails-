@@ -5,12 +5,14 @@ using System.Numerics;
 using System.Threading;
 using Unity.Collections;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
    public Animator animator;
 
    private SwordController swordController;
+
+   private LevelLoader levelLoader;
 
    private bool isDead;
    public float movSpeed;
@@ -19,7 +21,7 @@ public class PlayerController : MonoBehaviour
    private float attackCounter = .25f;
    private bool isAttacking;
 
-   private bool hasSword = false;
+   public bool hasSword;
 
    float speedX, speedY;
    public bool isMoving;
@@ -93,14 +95,24 @@ public class PlayerController : MonoBehaviour
             }
          }
          
-         bool sword = swordController.GetHasSword();
-         if(sword){
-         hasSword = true;
-         animator.SetBool("hasSword", hasSword);
+         if(hasSword)
+         {
+            animator.SetBool("hasSword", true);
          }
+         else
+         {
+            bool sword = swordController.GetHasSword();
+            if(sword){
+            hasSword = true;
+            animator.SetBool("hasSword", hasSword);
+            }
+         }
+         
 
       }
    }
+
+    
 
    private void FixedUpdate()
    {
