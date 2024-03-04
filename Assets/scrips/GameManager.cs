@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
         items = new Item[3];
     }
 
+    //añdade un item al invertario del jugador
     public void AddItem(Item item)
     {   //cuando se añade un objeto al inventario aumenta el score
         this.score += item.score;
@@ -103,6 +104,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("pierde una vida");
         vidas--;
         hud.desctiveVida(vidas);
+        
     }
 
     public void Update()

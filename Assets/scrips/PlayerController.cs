@@ -53,9 +53,7 @@ public class PlayerController : MonoBehaviour
                animator.SetBool("IsMoving", isMoving);
             }
          }
-
-
-       
+  
     }
 
     private void FixedUpdate(){
