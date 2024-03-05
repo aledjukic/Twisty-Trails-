@@ -122,7 +122,7 @@ public class GameManager : MonoBehaviour
             player.killPlayer();
             hud.isDeadPlayer();
         }
-        Debug.Log("Vidas: " + vidas);
+
     }
 
 }

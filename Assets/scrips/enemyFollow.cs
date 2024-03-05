@@ -1,51 +1,78 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Numerics;
+using System.Threading;
+using Unity.Collections;
 using UnityEngine;
 
 public class enemyFollow : MonoBehaviour
-
 {
-    public Animator animator;
+    public Animator animation;
 
     public Transform player;
     public float moveSpeed = 5f;
-    public float followDistance = 5f; // Distancia a partir de la cual el enemigo seguirá al jugador
-    public float stopFollowDistance = 10f; // Distancia a partir de la cual el enemigo dejará de seguir al jugador
-    public float raycastDistance = 1f; // Distancia del raycast para la comprobación de colisión
+    public float followDistance = 5f;
+    public float stopFollowDistance = 10f;
+    public float raycastDistance = 1f;
+    private bool isMoving = false;
+    private bool isDead = false;
+    Rigidbody2D rb;
 
     private void Update()
     {
-        // Calcula la distancia al jugador
-        float distanceToPlayer = Vector3.Distance(transform.position, player.position);
+        float distanceToPlayer = UnityEngine.Vector3.Distance(transform.position, player.position);
 
-        // Si el jugador está dentro del rango de seguimiento
-        if (distanceToPlayer <= followDistance)
+        if (isDead)
         {
-            // Calcula la dirección hacia el jugador
-            Vector3 direction = (player.position - transform.position).normalized;
+            StopMoving();
+            animation.SetBool("isDead", isDead);
+            return;
+        }
+        else
+        {
+            if (distanceToPlayer <= followDistance)
+        {
+            UnityEngine.Vector3 direction = (player.position - transform.position).normalized;
 
-            // Lanza un rayo en la dirección del movimiento
             RaycastHit hit;
             if (Physics.Raycast(transform.position, direction, out hit, raycastDistance))
             {
-                // Si el rayo golpea algo, comprueba si es el jugador
                 if (hit.collider.CompareTag("Player"))
                 {
-                    // Mueve al enemigo hacia el jugador
                     transform.position += direction * moveSpeed * Time.deltaTime;
+                    isMoving = false;
+                    animation.SetBool("isWalking", false);
+                    Debug.Log("estoy loco");
                 }
-                // Si golpea algo más, no hacemos nada (por ejemplo, no avanzamos)
+                else
+                {
+                    isMoving = false;
+                    animation.SetBool("isWalking", false);
+                    Debug.Log("ooooo");
+                }
             }
             else
             {
-                // Si no golpea nada, mueve al enemigo hacia el jugador
                 transform.position += direction * moveSpeed * Time.deltaTime;
+                isMoving = true;
+                animation.SetBool("isWalking", true);
             }
         }
-        // Si el jugador está fuera del rango de dejar de seguir
-        else if (distanceToPlayer > stopFollowDistance)
+        else 
         {
-            // No hacemos nada, el enemigo permanece en su posición
+            isMoving = false;
+            animation.SetBool("isWalking", false);
+            Debug.Log("se par�");
         }
     }
+        }
+
+    private void StopMoving()
+    {
+        rb.velocity = UnityEngine.Vector2.zero;
+    }
+
 }
