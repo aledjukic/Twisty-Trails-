@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class enemyFollow : MonoBehaviour
+
 {
+    public Animator animator;
+
     public Transform player;
     public float moveSpeed = 5f;
     public float followDistance = 5f; // Distancia a partir de la cual el enemigo seguirá al jugador
