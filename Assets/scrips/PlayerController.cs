@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     public float invincibilityDuration = 2f; // Duración de la invencibilidad en segundos
     private bool isInvincible = false;
     private float invincibilityTimer = 0f;
+   [SerializeField] private AudioClip swordSoundClip;
    private bool isDead;
    public float movSpeed;
    float speedX, speedY;
