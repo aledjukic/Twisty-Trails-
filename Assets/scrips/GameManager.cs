@@ -101,19 +101,27 @@ public class GameManager : MonoBehaviour
 
     public void lostVida()
     {
-        Debug.Log("pierde una vida");
-        vidas--;
-        hud.desctiveVida(vidas);
-        
+        if (vidas == 0)
+        {
+            return;
+        }
+        else
+        {
+            Debug.Log("pierde una vida");
+            vidas--;
+            hud.desctiveVida(vidas);
+        }
     }
 
     public void Update()
     {
         if (vidas == 0)
         {
-            Debug.Log("Game Over");
+            //Debug.Log("Game Over");
             player.killPlayer();
+            hud.isDeadPlayer();
         }
+        Debug.Log("Vidas: " + vidas);
     }
 
 }

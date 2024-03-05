@@ -16,59 +16,83 @@ public class PlayerController : MonoBehaviour
    public bool isMoving;
    Rigidbody2D rb;
    private SpriteRenderer sr;
-    // Start is called before the first frame update
-    void Start()
-    {
-       rb = GetComponent<Rigidbody2D>();
-       sr = GetComponent<SpriteRenderer>();
-    }
+   // Start is called before the first frame update
+   void Start()
+   {
+      rb = GetComponent<Rigidbody2D>();
+      sr = GetComponent<SpriteRenderer>();
+   }
 
-    // Update is called once per frame
-   private void Update() {
+   // Update is called once per frame
+   private void Update()
+   {
 
-         if(isDead){
-               animator.SetBool("isDead", isDead);
-               return;
-         }  
-      
-        speedX = Input.GetAxisRaw("Horizontal") * movSpeed;
-        speedY = Input.GetAxisRaw("Vertical") * movSpeed;
+      if (isDead)
+      {
+         StopMoving();
+         animator.SetBool("isDead", isDead);
+         return;
+      }
+      else
+      {
 
-        if(speedX < 0){
-         sr.flipX = true;
-        } else {
-         sr.flipX = false;
-        }
+         speedX = Input.GetAxisRaw("Horizontal") * movSpeed;
+         speedY = Input.GetAxisRaw("Vertical") * movSpeed;
 
-        if(speedX != 0 || speedY != 0){
-         animator.SetFloat("X", speedX);
-         animator.SetFloat("Y", speedY);
-         if(!isMoving){
-            isMoving = true;
-            animator.SetBool("IsMoving", isMoving);
-         } 
-        } else {
-            if(isMoving){
+         if (speedX < 0)
+         {
+            sr.flipX = true;
+         }
+         else
+         {
+            sr.flipX = false;
+         }
+
+         if (speedX != 0 || speedY != 0)
+         {
+            animator.SetFloat("X", speedX);
+            animator.SetFloat("Y", speedY);
+            if (!isMoving)
+            {
+               isMoving = true;
+               animator.SetBool("IsMoving", isMoving);
+            }
+         }
+         else
+         {
+            if (isMoving)
+            {
                isMoving = false;
                animator.SetBool("IsMoving", isMoving);
             }
          }
-  
-    }
 
-    private void FixedUpdate(){
-       UnityEngine.Vector2 movement = new UnityEngine.Vector2(speedX, speedY);
+      }
+   }
 
+   private void FixedUpdate()
+   {
+      if (!isDead)
+      {
+         UnityEngine.Vector2 movement = new UnityEngine.Vector2(speedX, speedY);
          rb.velocity = movement * movSpeed * Time.deltaTime;
-    }
-    
-    private void StopMoving(){
+      }
+      else
+      {
+         rb.velocity = UnityEngine.Vector2.zero;
+      }
+   }
+
+
+   private void StopMoving()
+   {
       rb.velocity = UnityEngine.Vector2.zero;
-    }
+   }
 
-    public void killPlayer(){
+   public void killPlayer()
+   {
       isDead = true;
-    }
+   }
 
-    
+
 }

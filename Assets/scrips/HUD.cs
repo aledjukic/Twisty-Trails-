@@ -19,11 +19,7 @@ public class HUD : MonoBehaviour
 
     public void Update()
     {
-        //si todas las vidas estan desactivadas no se ejecuta
-        if (vidas[0].activeSelf == false && vidas[1].activeSelf == false && vidas[2].activeSelf == false)
-        {
-            isDead = true;
-        }
+        // Si el jugador está muerto, no hace falta que el corazón parpadee
         if (isDead)
         {
             Debug.Log("Game Over");
@@ -31,23 +27,37 @@ public class HUD : MonoBehaviour
         }
         else
         {
-            // Verifica si queda solo una vida y activa el parpadeo del corazón
-            if (!vidas[1].activeSelf && !corazonParpadeando)
+            if (vidas[1].activeSelf == false && vidas[2].activeSelf == false)
             {
                 corazonParpadeando = true;
                 StartCoroutine(ParpadearCorazon());
             }
-            // Si se recupera una vida, desactiva el parpadeo del corazón
-            if (vidas[1].activeSelf && corazonParpadeando)
-            {
+            else{
                 corazonParpadeando = false;
-                StopCoroutine(ParpadearCorazon());
+                vidas[0].SetActive(true);
+                //Debug.Log("No parpadea");
             }
+        }
+    }
+
+    public void isDeadPlayer()
+    {
+        isDead = true;
+    }   
+
+    IEnumerator ParpadearCorazon()
+    {
+        while (corazonParpadeando)
+        {
+            // Alternar entre activado y desactivado con un intervalo de tiempo
+            vidas[0].SetActive(!vidas[0].activeSelf);
+            yield return new WaitForSeconds(0.5f); // Cambiar este valor según el tiempo deseado de parpadeo
         }
     }
 
     public void desctiveVida(int inidce)
     {
+        Debug.Log(inidce);
         vidas[inidce].SetActive(false);
     }
 
@@ -86,18 +96,6 @@ public class HUD : MonoBehaviour
                 InventarySlots[i].GetComponent<SlotUsed>().isUsed = true;
                 break;
             }
-        }
-    }
-
-    IEnumerator ParpadearCorazon()
-    {
-        while (corazonParpadeando)
-        {
-            // Desactiva y activa el corazón cada cierto tiempo para simular el parpadeo
-            vidas[0].SetActive(false);
-            yield return new WaitForSeconds(0.5f);
-            vidas[0].SetActive(true);
-            yield return new WaitForSeconds(0.5f);
         }
     }
 
