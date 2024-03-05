@@ -5,7 +5,8 @@ public class MenuInicial : MonoBehaviour
 {
     public void StartGame(){
         //aqui va la escena del juego//
-        SceneManager.LoadScene("Alejandro");
+        SceneManager.LoadScene("Tutorial");
+        
     }
 
     public void Quit(){
