@@ -651,7 +651,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animation: {fileID: 117484687}
-  player: {fileID: 0}
+  player: {fileID: 609496221}
   moveSpeed: 0.1
   followDistance: 0.5
   stopFollowDistance: 10
@@ -2046,7 +2046,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animation: {fileID: 732855856}
-  player: {fileID: 0}
+  player: {fileID: 609496221}
   moveSpeed: 0.1
   followDistance: 0.5
   stopFollowDistance: 10
@@ -15293,7 +15293,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animation: {fileID: 1061916311}
-  player: {fileID: 0}
+  player: {fileID: 609496221}
   moveSpeed: 0.1
   followDistance: 0.5
   stopFollowDistance: 10
@@ -15371,37 +15371,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1088054134
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1088054135}
-  m_Layer: 0
-  m_Name: 'Enemigos '
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1088054135
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1088054134}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.7495589, y: -0.86526245, z: -0.83406085}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1107366128
 GameObject:
   m_ObjectHideFlags: 0
@@ -18379,7 +18348,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animation: {fileID: 1662445985}
-  player: {fileID: 0}
+  player: {fileID: 609496221}
   moveSpeed: 0.1
   followDistance: 0.5
   stopFollowDistance: 10
@@ -18751,7 +18720,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animation: {fileID: 1733094267}
-  player: {fileID: 0}
+  player: {fileID: 609496221}
   moveSpeed: 0.1
   followDistance: 0.5
   stopFollowDistance: 10
@@ -19069,7 +19038,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animation: {fileID: 1799736051}
-  player: {fileID: 0}
+  player: {fileID: 609496221}
   moveSpeed: 0.1
   followDistance: 0.5
   stopFollowDistance: 10
@@ -19255,7 +19224,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animation: {fileID: 1836935424}
-  player: {fileID: 0}
+  player: {fileID: 609496221}
   moveSpeed: 0.1
   followDistance: 0.5
   stopFollowDistance: 10
@@ -19516,7 +19485,6 @@ SceneRoots:
   - {fileID: 1326926151}
   - {fileID: 634230136}
   - {fileID: 1271714784}
-  - {fileID: 1088054135}
   - {fileID: 256769702}
   - {fileID: 174267520}
   - {fileID: 105271762}
