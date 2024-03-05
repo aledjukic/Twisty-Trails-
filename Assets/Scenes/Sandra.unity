@@ -240,8 +240,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isAnimated: 0
-  currentHealth: 9
-  maxHealth: 9
   vidaPerdidaFrame: 3
 --- !u!1 &134588858
 GameObject:
@@ -459,8 +457,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isAnimated: 0
-  currentHealth: 9
-  maxHealth: 9
   vidaPerdidaFrame: 3
 --- !u!1001 &189734461
 PrefabInstance:
@@ -630,8 +626,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isAnimated: 0
-  currentHealth: 9
-  maxHealth: 9
   vidaPerdidaFrame: 3
 --- !u!1001 &213187675
 PrefabInstance:
@@ -720,8 +714,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isAnimated: 0
-  currentHealth: 9
-  maxHealth: 9
   vidaPerdidaFrame: 3
 --- !u!1 &273989054
 GameObject:
@@ -974,8 +966,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isAnimated: 0
-  currentHealth: 9
-  maxHealth: 9
   vidaPerdidaFrame: 3
 --- !u!1 &551524208
 GameObject:
@@ -1056,8 +1046,8 @@ Transform:
   m_GameObject: {fileID: 551524208}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.137, y: -0.25, z: 0}
-  m_LocalScale: {x: 0.11753409, y: 0.11753409, z: 0.11753409}
+  m_LocalPosition: {x: -0.691, y: 0.09, z: 0}
+  m_LocalScale: {x: 0.09883442, y: 0.09883442, z: 0.09883442}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -5987,8 +5977,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isAnimated: 0
-  currentHealth: 9
-  maxHealth: 9
   vidaPerdidaFrame: 3
 --- !u!1001 &648131971
 PrefabInstance:
@@ -6158,8 +6146,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isAnimated: 0
-  currentHealth: 9
-  maxHealth: 9
   vidaPerdidaFrame: 3
 --- !u!1 &693435693
 GameObject:
@@ -9419,8 +9405,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isAnimated: 0
-  currentHealth: 9
-  maxHealth: 9
   vidaPerdidaFrame: 3
 --- !u!1 &1047997580
 GameObject:
@@ -12574,8 +12558,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isAnimated: 0
-  currentHealth: 9
-  maxHealth: 9
   vidaPerdidaFrame: 3
 --- !u!1 &1134515397
 GameObject:
@@ -12698,8 +12680,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isAnimated: 0
-  currentHealth: 9
-  maxHealth: 9
   vidaPerdidaFrame: 3
 --- !u!114 &1134515403
 MonoBehaviour:
@@ -12714,8 +12694,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isAnimated: 0
-  currentHealth: 9
-  maxHealth: 9
   vidaPerdidaFrame: 3
 --- !u!114 &1134515404
 MonoBehaviour:
@@ -12730,8 +12708,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isAnimated: 0
-  currentHealth: 9
-  maxHealth: 9
   vidaPerdidaFrame: 3
 --- !u!114 &1134515405
 MonoBehaviour:
@@ -12746,8 +12722,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isAnimated: 0
-  currentHealth: 9
-  maxHealth: 9
   vidaPerdidaFrame: 3
 --- !u!1 &1353607707
 GameObject:
@@ -13330,8 +13304,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isAnimated: 0
-  currentHealth: 9
-  maxHealth: 9
   vidaPerdidaFrame: 3
 --- !u!1001 &1527323132
 PrefabInstance:
@@ -13501,8 +13473,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isAnimated: 0
-  currentHealth: 9
-  maxHealth: 9
   vidaPerdidaFrame: 3
 --- !u!1 &1580926824
 GameObject:
@@ -13698,8 +13668,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isAnimated: 0
-  currentHealth: 9
-  maxHealth: 9
   vidaPerdidaFrame: 3
 --- !u!1001 &1713078000
 PrefabInstance:
@@ -13869,8 +13837,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isAnimated: 0
-  currentHealth: 9
-  maxHealth: 9
   vidaPerdidaFrame: 3
 --- !u!1001 &1831594086
 PrefabInstance:
@@ -13959,8 +13925,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isAnimated: 0
-  currentHealth: 9
-  maxHealth: 9
   vidaPerdidaFrame: 3
 --- !u!1 &1927392615
 GameObject:
@@ -14215,8 +14179,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 4395829132079855459}
+  invincibilityDuration: 2
   movSpeed: 3
-  hasSword: 0
   isMoving: 0
 --- !u!95 &4395829132079855459
 Animator:
@@ -14321,8 +14285,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isAnimated: 0
-  currentHealth: 9
-  maxHealth: 9
   vidaPerdidaFrame: 3
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
