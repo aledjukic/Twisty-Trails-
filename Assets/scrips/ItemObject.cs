@@ -18,7 +18,6 @@ public class LLave : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
-            Sound
             GameManager.instance.AddItem(new Item { nombre = keyName, descripcion = descripcion, imagen = spriteRenderer, score = score});
             Debug.Log("Llave recogida");
             Destroy(gameObject);
