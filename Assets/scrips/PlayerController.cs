@@ -5,24 +5,15 @@ using System.Numerics;
 using System.Threading;
 using Unity.Collections;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+
 public class PlayerController : MonoBehaviour
 {
    public Animator animator;
-
-   private SwordController swordController;
-
-   private LevelLoader levelLoader;
-
+    public float invincibilityDuration = 2f; // Duración de la invencibilidad en segundos
+    private bool isInvincible = false;
+    private float invincibilityTimer = 0f;
    private bool isDead;
    public float movSpeed;
-
-   private float attackTime = .25f;
-   private float attackCounter = .25f;
-   private bool isAttacking;
-
-   public bool hasSword;
-
    float speedX, speedY;
    public bool isMoving;
    Rigidbody2D rb;
@@ -32,34 +23,30 @@ public class PlayerController : MonoBehaviour
    {
       rb = GetComponent<Rigidbody2D>();
       sr = GetComponent<SpriteRenderer>();
-      swordController = GameObject.Find("Sword").GetComponent<SwordController>();
-      
    }
 
    // Update is called once per frame
    private void Update()
    {
+      if (isInvincible)
+        {
+            // Parpadeo del jugador
+            float blinkTime = Mathf.PingPong(Time.time * 5, 1); // Velocidad de parpadeo
+            sr.enabled = blinkTime > 0.5f;
 
+            // Control de temporizador de invencibilidad
+            invincibilityTimer -= Time.deltaTime;
+            if (invincibilityTimer <= 0f)
+            {
+                isInvincible = false;
+                sr.enabled = true; // Asegúrate de que el jugador no quede invisible al finalizar la invencibilidad
+            }
+        }
       if (isDead)
       {
          StopMoving();
          animator.SetBool("isDead", isDead);
          return;
-      }
-      else if (isAttacking && hasSword == true)
-      {
-         attackCounter -= Time.deltaTime;
-         if (attackCounter <= 0)
-         {
-            animator.SetBool("isAttacking", false);
-            isAttacking = false;
-         }
-      }
-      if (Input.GetKeyDown(KeyCode.E))
-      {
-         attackCounter = attackTime;
-         animator.SetBool("isAttacking", true);
-         isAttacking = true;
       }
       else
       {
@@ -94,25 +81,22 @@ public class PlayerController : MonoBehaviour
                animator.SetBool("IsMoving", isMoving);
             }
          }
-         
-         if(hasSword)
-         {
-            animator.SetBool("hasSword", true);
-         }
-         else
-         {
-            bool sword = swordController.GetHasSword();
-            if(sword){
-            hasSword = true;
-            animator.SetBool("hasSword", hasSword);
-            }
-         }
-         
 
       }
    }
 
-    
+   public void takeDamage()
+    {
+      Debug.Log("Player has taken damage");
+        if (!isInvincible)
+        {
+            // Realizar acciones para cuando el jugador recibe daño
+            // Por ejemplo, reducir la salud del jugador o ejecutar animaciones
+
+            isInvincible = true;
+            invincibilityTimer = invincibilityDuration;
+        }
+    }
 
    private void FixedUpdate()
    {
@@ -124,7 +108,6 @@ public class PlayerController : MonoBehaviour
       else
       {
          rb.velocity = UnityEngine.Vector2.zero;
-         
       }
    }
 

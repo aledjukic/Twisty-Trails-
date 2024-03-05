@@ -17,7 +17,6 @@ public class HUD : MonoBehaviour
 
     private bool isDead;
 
-
     public void Update()
     {
         // Si el jugador está muerto, no hace falta que el corazón parpadee
@@ -72,7 +71,7 @@ public class HUD : MonoBehaviour
         InventarySlots[index].GetComponent<Image>().sprite = voidPanel;
         InventarySlots[index].GetComponent<SlotUsed>().isUsed = false;
     }
-    
+
     public void UpdateScore(int keys)
     {
         if (textoLlaves != null)
@@ -97,22 +96,6 @@ public class HUD : MonoBehaviour
                 InventarySlots[i].GetComponent<SlotUsed>().isUsed = true;
                 break;
             }
-        }
-    }
-
-    public void ocultarInventario()
-    {
-        for (int i = 0; i < InventarySlots.Length; i++)
-        {
-            InventarySlots[i].SetActive(false);
-        }
-    }
-
-    public void mostrarInventario()
-    {
-        for (int i = 0; i < InventarySlots.Length; i++)
-        {
-            InventarySlots[i].SetActive(true);
         }
     }
 
