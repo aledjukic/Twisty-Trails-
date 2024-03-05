@@ -25,5 +25,6 @@ public class SoundFXManager : MonoBehaviour
         float cliplength = audioSource.clip.length;
         Destroy(audioSource.gameObject, cliplength);
     }
+
 }
   
