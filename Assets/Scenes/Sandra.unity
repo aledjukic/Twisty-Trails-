@@ -14212,6 +14212,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 4395829132079855459}
+  invincibilityDuration: 2
   movSpeed: 3
   isMoving: 0
 --- !u!95 &4395829132079855459
