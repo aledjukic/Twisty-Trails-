@@ -8,14 +8,15 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-   public Animator animator;
+    public Animator animator;
     public float invincibilityDuration = 2f; // Duración de la invencibilidad en segundos
     private bool isInvincible = false;
     private float invincibilityTimer = 0f;
-   private bool isDead;
-   public float movSpeed;
-   float speedX, speedY;
-   public bool isMoving;
+    private bool isDead;
+    public float movSpeed;
+    float speedX, speedY;
+    public bool isMoving;
+    public bool hasSword;
    Rigidbody2D rb;
    private SpriteRenderer sr;
    // Start is called before the first frame update
@@ -23,7 +24,8 @@ public class PlayerController : MonoBehaviour
    {
       rb = GetComponent<Rigidbody2D>();
       sr = GetComponent<SpriteRenderer>();
-   }
+      //swordController = GameObject.Find("Sword").GetComponent<SwordController>();
+    }
 
    // Update is called once per frame
    private void Update()
@@ -81,8 +83,11 @@ public class PlayerController : MonoBehaviour
                animator.SetBool("IsMoving", isMoving);
             }
          }
-
-      }
+            if (hasSword)
+            {
+                animator.SetBool("hasSword", true);
+            }
+        }
    }
 
    public void takeDamage()
