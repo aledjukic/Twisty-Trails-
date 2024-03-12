@@ -3937,7 +3937,8 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2024570881677652521, guid: fb08ee6c31fbcac46acea64c7cc391c7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 5236642174345994706, guid: fb08ee6c31fbcac46acea64c7cc391c7, type: 3}
@@ -16647,6 +16648,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2720590474780261384, guid: dbfb95b1377360044b627ef32a2a8ab2, type: 3}
+      propertyPath: homePos
+      value: 
+      objectReference: {fileID: 1708367170}
     - target: {fileID: 3376840632808599597, guid: dbfb95b1377360044b627ef32a2a8ab2, type: 3}
       propertyPath: m_FlipX
       value: 0
