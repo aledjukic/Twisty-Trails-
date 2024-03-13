@@ -109,6 +109,7 @@ public class GameManager : MonoBehaviour
             Debug.Log("pierde una vida");
             vidas--;
             hud.desctiveVida(vidas);
+            player.takeDamage();
         }
     }
 
