@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     private bool isInvincible = false;
     private float invincibilityTimer = 0f;
    [SerializeField] private AudioClip swordSoundClip;
+   [SerializeField] private AudioClip deathSoundClip;
    private bool isDead;
    public float movSpeed;
    float speedX, speedY;
@@ -46,6 +47,7 @@ public class PlayerController : MonoBehaviour
       if (isDead)
       {
          StopMoving();
+         SoundFXManager.instance.PlaySoundFXCLip(swordSoundClip, transform, 1f);
          animator.SetBool("isDead", isDead);
          return;
       }

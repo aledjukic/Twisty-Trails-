@@ -888,6 +888,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91ff0d288b7440542bb9371129070d14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathSoundClip: {fileID: 8300000, guid: 97eaacf0f1d8e0f4b876df4fec401ea6, type: 3}
   textoLlaves: {fileID: 990390446}
   vidas:
   - {fileID: 1613690886}
@@ -1218,6 +1219,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 609496215}
   invincibilityDuration: 2
+  swordSoundClip: {fileID: 8300000, guid: fdc3fea38f66cb645879bbbcde3841e4, type: 3}
   movSpeed: 5
   isMoving: 0
 --- !u!4 &609496221 stripped
@@ -14480,6 +14482,51 @@ Transform:
   - {fileID: 1868201598}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1368863104
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1368863106}
+  - component: {fileID: 1368863105}
+  m_Layer: 0
+  m_Name: SoundFXManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1368863105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1368863104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24ef7f1d3894bb443bac7b776351aa38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundFXObject: {fileID: 1822686095589892197, guid: dc8deef04b675754fbdfbc33efa5a87b, type: 3}
+--- !u!4 &1368863106
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1368863104}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1404859950 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7324999177400981497, guid: c88583a1653ce3a4e909fe7ba1178d7a, type: 3}
@@ -16837,4 +16884,5 @@ SceneRoots:
   - {fileID: 1088054135}
   - {fileID: 256769702}
   - {fileID: 174267520}
+  - {fileID: 1368863106}
   - {fileID: 944549348}

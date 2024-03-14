@@ -1464,6 +1464,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91ff0d288b7440542bb9371129070d14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathSoundClip: {fileID: 8300000, guid: 97eaacf0f1d8e0f4b876df4fec401ea6, type: 3}
   textoLlaves: {fileID: 990390446}
   vidas:
   - {fileID: 1613690886}
@@ -1886,6 +1887,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 609496215}
   invincibilityDuration: 2
+  swordSoundClip: {fileID: 0}
   movSpeed: 5
   isMoving: 0
 --- !u!4 &609496221 stripped

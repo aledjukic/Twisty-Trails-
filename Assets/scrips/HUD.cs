@@ -6,11 +6,11 @@ using TwistyTrails.Assets.scrips;
 
 public class HUD : MonoBehaviour
 {
-
+    [SerializeField] private AudioClip deathSoundClip;
     public Text textoLlaves;
     public GameObject[] vidas;
     private bool corazonParpadeando = false;
-
+   
     public GameObject[] InventarySlots;
 
     public Sprite voidPanel;
