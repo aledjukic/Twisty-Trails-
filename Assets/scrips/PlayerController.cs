@@ -32,7 +32,7 @@ public class PlayerController : MonoBehaviour
    {
       rb = GetComponent<Rigidbody2D>();
       sr = GetComponent<SpriteRenderer>();
-      swordController = GameObject.Find("Espada").GetComponent<SwordController>();
+      swordController = GameObject.Find("Sword").GetComponent<SwordController>();
       
    }
 

@@ -107,7 +107,7 @@ public class GameManager : MonoBehaviour
         else
         {
             Debug.Log("pierde una vida");
-            vidas--;
+            vidas = vidas - 1;
             hud.desctiveVida(vidas);
         }
     }

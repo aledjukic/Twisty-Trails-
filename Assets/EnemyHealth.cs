@@ -12,6 +12,8 @@ public class EnemyHealth : MonoBehaviour
     // Start is called before the first frame update
     private float deathtime = 1.2f;
 
+    public bool isDead = false; 
+
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -50,6 +52,7 @@ public class EnemyHealth : MonoBehaviour
 
         if(currentHealth <= 0)
         {
+            isDead = true; 
             animator.SetBool("isDead", true);
             Destroy(this.gameObject, deathtime);
         }
@@ -57,5 +60,10 @@ public class EnemyHealth : MonoBehaviour
         {
             animator.SetBool("isDead", false);
         }
+    }
+
+    public bool CheckifDead()
+    {
+        return isDead;
     }
 }
