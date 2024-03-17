@@ -7,6 +7,7 @@ public class storeNpc : MonoBehaviour
 
     // Valor booleano para verificar si el jugador está dentro del trigger
     private bool playerInsideTrigger = false;
+    public GameObject storePanel;
 
      void OnTriggerEnter2D(Collider2D  other)
     {
@@ -27,6 +28,11 @@ public class storeNpc : MonoBehaviour
         }
     }
 
+    void Start()
+    {
+        storePanel.SetActive(false);
+    }
+
      void Update()
     {
         // Verifica si el jugador está dentro del trigger y si presiona la tecla "F"
@@ -34,6 +40,11 @@ public class storeNpc : MonoBehaviour
         {
             // Realiza alguna acción cuando el jugador presiona la tecla "F" dentro del trigger
             Debug.Log("El jugador presionó la tecla 'F' dentro de la tienda");
+            storePanel.SetActive(true);
+        }
+        if (storePanel.activeSelf && Input.GetKeyDown(KeyCode.Escape))
+        {
+            storePanel.SetActive(false);
         }
     }
 
