@@ -106,7 +106,6 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("pierde una vida");
             vidas--;
             hud.desctiveVida(vidas);
             player.takeDamage();
@@ -121,7 +120,6 @@ public class GameManager : MonoBehaviour
             player.killPlayer();
             hud.isDeadPlayer();
         }
-        Debug.Log("Vidas: " + vidas);
     }
 
     public void ocultarInventario()
