@@ -5,7 +5,8 @@ using TwistyTrails.Assets.scrips;
 
 public class LLave : MonoBehaviour
 {
-
+    private SpriteRenderer sr;
+    private BoxCollider2D boxcollider;
     public string keyName;
 
     public Sprite spriteRenderer;
@@ -15,7 +16,11 @@ public class LLave : MonoBehaviour
     public int score = 0;
 
     public int slimecounter;
+
+    public bool isRiddle;
     public GameObject[] values;
+
+    private bool alldead = false;
 
     
     
@@ -29,37 +34,48 @@ public class LLave : MonoBehaviour
         }
     }
 
+    void Start()
+    {
+        sr = GetComponent<SpriteRenderer>();
+        boxcollider = GetComponent<BoxCollider2D>();
+        if(isRiddle)
+        {
+            sr.enabled = false;
+            boxcollider.enabled = false;
+
+        }
+    }
     void Update()
     {
-        this.gameObject.SetActive(false);
-        RiddleConditions(values);
+        if(isRiddle)
+        {
+            RiddleConditions(values);
+        }
         
     }
 
     public void RiddleConditions(GameObject[] values)
     {
-        bool allDead = false;
-
+        
+        int deadslimes = 0;
         foreach(GameObject monster in values)
         {
-            EnemyHealth slime = monster.GetComponent<EnemyHealth>();
-
-            if(slime.CheckifDead() == true)
+            if(monster == null)
             {
-                if(slimecounter == 0)
+                deadslimes++;
+                Debug.Log("Muertos: " + deadslimes);
+                if(deadslimes >= slimecounter)
                 {
-                    allDead = true; 
-                }
-                else
-                {
-                    slimecounter--;
+                    alldead = true;
+                    break;
                 }
             }
         }
 
-        if(allDead == true)
+        if(alldead == true)
         {
-            this.gameObject.SetActive(true);
+            sr.enabled = true;
+            boxcollider.enabled = true;
         }
         
     }

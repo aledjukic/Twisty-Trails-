@@ -16732,7 +16732,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52a3443c4f645cf4681a40372f3ced01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 3
+  damage: 9
 --- !u!61 &1648642868
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -17017,6 +17017,10 @@ PrefabInstance:
       value: Silver Key 1
       objectReference: {fileID: 0}
     - target: {fileID: 3246077100604104016, guid: 02a87f7c7df6bed40b227ba138c543ee, type: 3}
+      propertyPath: isRiddle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3246077100604104016, guid: 02a87f7c7df6bed40b227ba138c543ee, type: 3}
       propertyPath: slimecounter
       value: 3
       objectReference: {fileID: 0}
@@ -17062,11 +17066,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7948642143101087652, guid: 02a87f7c7df6bed40b227ba138c543ee, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.096
+      value: -1.8
       objectReference: {fileID: 0}
     - target: {fileID: 7948642143101087652, guid: 02a87f7c7df6bed40b227ba138c543ee, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.89
+      value: -0.517
       objectReference: {fileID: 0}
     - target: {fileID: 7948642143101087652, guid: 02a87f7c7df6bed40b227ba138c543ee, type: 3}
       propertyPath: m_LocalPosition.z
