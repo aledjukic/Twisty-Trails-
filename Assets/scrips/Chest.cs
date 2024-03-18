@@ -25,7 +25,7 @@ public class Chest : MonoBehaviour
     void Update()
     {
         // Hacer algo si el jugador presiona la tecla E
-        if (Input.GetKeyDown(KeyCode.E) && isOnTrigger)
+        if (Input.GetKeyDown(KeyCode.F) && isOnTrigger)
         {
              Debug.Log("El jugador ha presionado la tecla E.");
                 //añadir el objeto al inventario
