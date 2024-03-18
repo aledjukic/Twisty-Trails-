@@ -133,7 +133,6 @@ public class GameManager : MonoBehaviour
         hud.mostrarInventario();
     }
 
-   
 }
 // Path: Assets/scrips/Item.cs
 // Compare this snippet from Assets/scrips/Player.cs:

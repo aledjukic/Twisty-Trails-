@@ -25,12 +25,25 @@ public class Player : MonoBehaviour
         {
             Move(velocity, 0);
         }
+        if (Input.GetKey(KeyCode.G))
+        {
+            SaveManager.SavePlayerData(this);
+            Debug.Log ("Datos Guardados");
+        }
+        if (Input.GetKey(KeyCode.C))
+        {
+            PlayerData playerData = SaveManager.LoadPlayerData();
+            transform.position = new Vector3 (playerData.position[0], playerData.position[1], playerData.position[2]);
+            Debug.Log ("Datos Cargados");
+        }
     }
+
 
     // movimento del player
     public void Move(float x, float y)
     {
         transform.position = new Vector3(transform.position.x + x, transform.position.y + y, transform.position.z);
     }
+
 
 }
