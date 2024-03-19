@@ -12,8 +12,6 @@ public class PlayerController : MonoBehaviour
 
    private SwordController swordController;
 
-   private LevelLoader levelLoader;
-
    public float invincibilityDuration = 2f; // Duración de la invencibilidad en segundos
    private bool isInvincible = false;
    private float invincibilityTimer = 0f;
@@ -43,20 +41,7 @@ public class PlayerController : MonoBehaviour
    // Update is called once per frame
    private void Update()
    {
-       if (isInvincible)
-        {
-            // Parpadeo del jugador
-            float blinkTime = Mathf.PingPong(Time.time * 5, 1); // Velocidad de parpadeo
-            sr.enabled = blinkTime > 0.5f;
 
-            // Control de temporizador de invencibilidad
-            invincibilityTimer -= Time.deltaTime;
-            if (invincibilityTimer <= 0f)
-            {
-                isInvincible = false;
-                sr.enabled = true; // Asegúrate de que el jugador no quede invisible al finalizar la invencibilidad
-            }
-        }
 
       if (isDead)
       {

@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
 
     private int vidas = 3;
 
+    [SerializeField] private AudioClip takeDamageClip;
+
     public PlayerController player;
 
     //inventario
@@ -108,6 +110,7 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("pierde una vida");
             vidas--;
+            SoundFXManager.instance.PlaySoundFXCLip(takeDamageClip, transform, 1f);
             hud.desctiveVida(vidas);
             player.takeDamage();
         }

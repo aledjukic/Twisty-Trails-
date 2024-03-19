@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TwistyTrails.Assets.scrips;
+using UnityEngine.SceneManagement;
 
 public class HUD : MonoBehaviour
 {
     [SerializeField] private AudioClip deathSoundClip;
+
+    [SerializeField] private AudioClip lowLifeClip;
     public Text textoLlaves;
     public GameObject[] vidas;
     private bool corazonParpadeando = false;
@@ -22,8 +25,9 @@ public class HUD : MonoBehaviour
         // Si el jugador está muerto, no hace falta que el corazón parpadee
         if (isDead)
         {
-            Debug.Log("Game Over");
             corazonParpadeando = false;
+            StartCoroutine(mostrarGameOver());
+            
         }
         else
         {
@@ -38,6 +42,11 @@ public class HUD : MonoBehaviour
                 //Debug.Log("No parpadea");
             }
         }
+    }
+
+    IEnumerator mostrarGameOver(){
+        yield return new WaitForSeconds(2);
+        SceneManager.LoadScene("GameOver");
     }
 
     public void isDeadPlayer()
@@ -96,6 +105,21 @@ public class HUD : MonoBehaviour
                 InventarySlots[i].GetComponent<SlotUsed>().isUsed = true;
                 break;
             }
+        }
+    }
+    public void ocultarInventario()
+    {
+        for (int i = 0; i < InventarySlots.Length; i++)
+        {
+            InventarySlots[i].SetActive(false);
+        }
+    }
+
+    public void mostrarInventario()
+    {
+        for (int i = 0; i < InventarySlots.Length; i++)
+        {
+            InventarySlots[i].SetActive(true);
         }
     }
 
