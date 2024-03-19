@@ -53,6 +53,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void SpeedIncrease(float speed)
+    {
+        player.movSpeed += speed;
+    }
+
     //verifica si tienes el objeto en el inventario// verifica si tienes el objeto en el inventario
     public bool CheckItem(Item item)
     {
@@ -120,6 +125,11 @@ public class GameManager : MonoBehaviour
             player.killPlayer();
             hud.isDeadPlayer();
         }
+    }
+
+    public int getScore()
+    {
+        return score;
     }
 
     public void ocultarInventario()
