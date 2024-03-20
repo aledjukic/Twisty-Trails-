@@ -27,13 +27,14 @@ public class Chest : MonoBehaviour
         // Hacer algo si el jugador presiona la tecla E
         if (Input.GetKeyDown(KeyCode.F) && isOnTrigger)
         {
-             Debug.Log("El jugador ha presionado la tecla E.");
+             Debug.Log("El jugador ha presionado la tecla F.");
                 //añadir el objeto al inventario
                 GameManager.instance.AddItem(item);
+                Destroy(this.gameObject);
                 //reproducir sonido
                 SoundFXManager.instance.PlaySoundFXCLip(chestSoundClip, transform, 1f);
-                //destruir el objeto
-                Destroy(gameObject);
+                
+                
         }
     }
 

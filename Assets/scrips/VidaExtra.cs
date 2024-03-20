@@ -13,8 +13,9 @@ public class VidaExtra : MonoBehaviour
         {
             //Debug.Log("Player ha chocado con un enemigo");
             GameManager.instance.restoreVida();
+            Destroy(this.gameObject);
             SoundFXManager.instance.PlaySoundFXCLip(pickLifeClip, transform, 1f);
-            Destroy(gameObject);
+            
         }
     }
 

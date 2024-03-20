@@ -48,7 +48,7 @@ public class EnemyHealth : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
-        //SoundFXManager.instance.PlaySoundFXCLip(swordHittingClip, transform, 1f);
+        SoundFXManager.instance.PlaySoundFXCLip(swordHittingClip, transform, 1f);
 
         if(currentHealth <= 0)
         {

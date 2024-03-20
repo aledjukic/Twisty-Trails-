@@ -5,6 +5,7 @@ using TwistyTrails.Assets.scrips;
 public class DoorInteract : MonoBehaviour
 {
     [SerializeField] private AudioClip keySoundClip;
+    [SerializeField] private AudioClip doorLocked;
     public string typeDoor = "Golden";
 
     public Sprite doorOpen;
@@ -66,6 +67,7 @@ public class DoorInteract : MonoBehaviour
         }
         else
         {
+            SoundFXManager.instance.PlaySoundFXCLip(doorLocked, transform, 1f);
             Debug.Log("No tienes la llave dorada");
         }
     }
