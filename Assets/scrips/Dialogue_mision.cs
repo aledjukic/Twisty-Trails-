@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using TMPro;
 
-public class Dialogue : MonoBehaviour
+public class Dialogue_mision : MonoBehaviour
 {
     [SerializeField] private GameObject dialogueMark;
     [SerializeField] private GameObject dialoguePanel;
@@ -15,7 +15,7 @@ public class Dialogue : MonoBehaviour
     private bool didDialogueStart;
     private int lineIndex;
     private AudioSource audioSource;
-    
+
     private void Start(){
         audioSource = GetComponent<AudioSource>();
         audioSource.clip = narratorVoice;
@@ -23,14 +23,14 @@ public class Dialogue : MonoBehaviour
 
     void Update()
     {
-        if(isPlayerInRange && (Input.GetButtonDown("Fire1") || Input.GetKeyDown(KeyCode.F)))
+        if (isPlayerInRange && (Input.GetButtonDown("Fire1") || Input.GetKeyDown(KeyCode.F)))
         {
             if (!didDialogueStart)
             {
                 GameManager.instance.ocultarInventario();
                 StartDialogue();
             }
-            else if(dialogueText.text == dialogueLines[lineIndex])
+            else if (dialogueText.text == dialogueLines[lineIndex])
             {
                 NextDialogueLine();
             }
@@ -66,6 +66,8 @@ public class Dialogue : MonoBehaviour
             dialogueMark.SetActive(true);
             Time.timeScale = 1f;
             GameManager.instance.mostrarInventario(); //aqui se añade linea de codigo para bloquear el dialogo. paralelépipedo
+            //SkullPideMonedas.instance.desactivarDialogo();
+            SkullPideMonedas.instance.ya = false;
         }
     }
 
