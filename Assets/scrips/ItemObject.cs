@@ -5,8 +5,12 @@ using TwistyTrails.Assets.scrips;
 
 public class LLave : MonoBehaviour
 {
+<<<<<<< HEAD
     private SpriteRenderer sr;
     private BoxCollider2D boxcollider;
+=======
+    [SerializeField] private AudioClip pickKeySoundClip;
+>>>>>>> 11f4699edc8a0756d03bea88c11e62949e0d8050
     public string keyName;
 
     public Sprite spriteRenderer;
@@ -31,6 +35,7 @@ public class LLave : MonoBehaviour
             GameManager.instance.AddItem(new Item { nombre = keyName, descripcion = descripcion, imagen = spriteRenderer, score = score});
             Debug.Log("Llave recogida");
             Destroy(gameObject);
+            SoundFXManager.instance.PlaySoundFXCLip(pickKeySoundClip, transform, 1f);
         }
     }
 

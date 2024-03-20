@@ -123,6 +123,51 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &759589
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 759591}
+  - component: {fileID: 759590}
+  m_Layer: 0
+  m_Name: SoundFXManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &759590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 759589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24ef7f1d3894bb443bac7b776351aa38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundFXObject: {fileID: 1822686095589892197, guid: dc8deef04b675754fbdfbc33efa5a87b, type: 3}
+--- !u!4 &759591
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 759589}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.03825545, y: 0.30948424, z: 0.014011456}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &45634753
 GameObject:
   m_ObjectHideFlags: 0
@@ -499,6 +544,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 139793916}
+  invincibilityDuration: 2
   movSpeed: 5
   hasSword: 1
   isMoving: 0
@@ -1368,6 +1414,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hud: {fileID: 890114011}
   score: 0
+  takeDamageClip: {fileID: 8300000, guid: 01f965ee6921df14193c11b9150e79b1, type: 3}
   player: {fileID: 139793917}
   items: []
 --- !u!4 &591875727
@@ -7038,6 +7085,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91ff0d288b7440542bb9371129070d14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathSoundClip: {fileID: 8300000, guid: 97eaacf0f1d8e0f4b876df4fec401ea6, type: 3}
+  lowLifeClip: {fileID: 8300000, guid: e7d219d6ce8316f4388ab52aa83cc0ea, type: 3}
   textoLlaves: {fileID: 823860319}
   vidas:
   - {fileID: 158948814}
@@ -61062,6 +61111,7 @@ SceneRoots:
   - {fileID: 139793913}
   - {fileID: 1055308170}
   - {fileID: 591875727}
+  - {fileID: 759591}
   - {fileID: 890114012}
   - {fileID: 225822157}
   - {fileID: 1482991216}

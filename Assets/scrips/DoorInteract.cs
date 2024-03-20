@@ -4,6 +4,7 @@ using UnityEngine;
 using TwistyTrails.Assets.scrips;
 public class DoorInteract : MonoBehaviour
 {
+    [SerializeField] private AudioClip keySoundClip;
     public string typeDoor = "Golden";
 
     public Sprite doorOpen;
@@ -43,12 +44,15 @@ public class DoorInteract : MonoBehaviour
         if (GameManager.instance.CheckItem(new Item { nombre = keyName, descripcion = "Llave", imagen = null }))
         {
             Debug.Log("Tienes la llave dorada");
+            //reproduce sonido
+            SoundFXManager.instance.PlaySoundFXCLip(keySoundClip, transform, 1f);
             // Desactiva la colisión de la puerta
             Collider2D[] colliders = GetComponents<Collider2D>();
             colliders[1].enabled = false;
             // Cambia el sprite de la puerta a una puerta abierta en el mismo tamaño
             SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
             spriteRenderer.sprite = doorOpen;
+            
 
             // Calcula la diferencia en tamaño entre el nuevo sprite y el sprite original
             float scaleX = spriteRenderer.bounds.size.x / transform.localScale.x;

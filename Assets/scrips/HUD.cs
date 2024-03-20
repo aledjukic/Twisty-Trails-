@@ -3,42 +3,68 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TwistyTrails.Assets.scrips;
+using UnityEngine.SceneManagement;
 
 public class HUD : MonoBehaviour
 {
-
+    [SerializeField] private AudioClip deathSoundClip;
+    [SerializeField] private AudioClip lowLifeClip;
     public Text textoLlaves;
     public GameObject[] vidas;
     private bool corazonParpadeando = false;
-
+    private bool sonidoLowLifeReproducido = false;
+    private bool sonidoDeathReproducido=false;
+   
     public GameObject[] InventarySlots;
 
     public Sprite voidPanel;
 
     private bool isDead;
 
-
     public void Update()
     {
         // Si el jugador está muerto, no hace falta que el corazón parpadee
         if (isDead)
         {
-            Debug.Log("Game Over");
+            if (!sonidoDeathReproducido){
+                ReproducirSonidoMuerte();
+                sonidoDeathReproducido = true;
+            }
             corazonParpadeando = false;
+            StartCoroutine(mostrarGameOver());     
         }
         else
         {
             if (vidas[1].activeSelf == false && vidas[2].activeSelf == false)
             {
                 corazonParpadeando = true;
+                if (!sonidoLowLifeReproducido)
+                {
+                    ReproducirSonidoVidaBaja();
+                    sonidoLowLifeReproducido = true;
+                }
                 StartCoroutine(ParpadearCorazon());
+                
             }
             else{
                 corazonParpadeando = false;
+                sonidoLowLifeReproducido = false;
                 vidas[0].SetActive(true);
                 //Debug.Log("No parpadea");
             }
         }
+    }
+
+    private void ReproducirSonidoVidaBaja(){
+       SoundFXManager.instance.PlaySoundFXCLip(lowLifeClip, transform, 1f);
+    }
+    private void ReproducirSonidoMuerte(){
+       SoundFXManager.instance.PlaySoundFXCLip(deathSoundClip, transform, 1f);
+       SoundFXManager.instance.StopSoundFXClip(lowLifeClip);
+    }    
+    IEnumerator mostrarGameOver(){
+        yield return new WaitForSeconds(2);
+        SceneManager.LoadScene("GameOver");
     }
 
     public void isDeadPlayer()
@@ -72,7 +98,7 @@ public class HUD : MonoBehaviour
         InventarySlots[index].GetComponent<Image>().sprite = voidPanel;
         InventarySlots[index].GetComponent<SlotUsed>().isUsed = false;
     }
-    
+
     public void UpdateScore(int keys)
     {
         if (textoLlaves != null)
@@ -99,7 +125,6 @@ public class HUD : MonoBehaviour
             }
         }
     }
-
     public void ocultarInventario()
     {
         for (int i = 0; i < InventarySlots.Length; i++)

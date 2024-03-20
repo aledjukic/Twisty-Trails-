@@ -12,7 +12,9 @@ public class PlayerController : MonoBehaviour
 
    private SwordController swordController;
 
-   private LevelLoader levelLoader;
+   public float invincibilityDuration = 2f; // Duración de la invencibilidad en segundos
+   private bool isInvincible = false;
+   private float invincibilityTimer = 0f;
 
    private bool isDead;
    public float movSpeed;
@@ -32,13 +34,14 @@ public class PlayerController : MonoBehaviour
    {
       rb = GetComponent<Rigidbody2D>();
       sr = GetComponent<SpriteRenderer>();
-      swordController = GameObject.Find("Espada").GetComponent<SwordController>();
+      swordController = GameObject.Find("Sword").GetComponent<SwordController>();
       
    }
 
    // Update is called once per frame
    private void Update()
    {
+
 
       if (isDead)
       {
@@ -111,7 +114,20 @@ public class PlayerController : MonoBehaviour
       }
    }
 
-    
+      public void takeDamage()
+    {
+      Debug.Log("Player has taken damage");
+        if (!isInvincible)
+        {
+            // Realizar acciones para cuando el jugador recibe daño
+            // Por ejemplo, reducir la salud del jugador o ejecutar animaciones
+
+            isInvincible = true;
+            invincibilityTimer = invincibilityDuration;
+        }
+    }
+
+
 
    private void FixedUpdate()
    {

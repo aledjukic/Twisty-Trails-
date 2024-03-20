@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
     private Animator animator;
+    [SerializeField] private AudioClip swordHittingClip;
     public int currentHealth = 9;
     public int maxHealth = 9;
 
@@ -47,6 +48,7 @@ public class EnemyHealth : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
+        SoundFXManager.instance.PlaySoundFXCLip(swordHittingClip, transform, 1f);
 
         if(currentHealth <= 0)
         {

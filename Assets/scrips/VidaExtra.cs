@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class VidaExtra : MonoBehaviour
 {
-  
+    [SerializeField] private AudioClip pickLifeClip;
     void OnTriggerEnter2D(Collider2D other)
     {
         //Debug.Log("Algo ha chocado con un enemigo");
@@ -13,6 +13,7 @@ public class VidaExtra : MonoBehaviour
         {
             //Debug.Log("Player ha chocado con un enemigo");
             GameManager.instance.restoreVida();
+            SoundFXManager.instance.PlaySoundFXCLip(pickLifeClip, transform, 1f);
             Destroy(gameObject);
         }
     }
