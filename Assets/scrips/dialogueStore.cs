@@ -60,6 +60,18 @@ public class DialogueStore : MonoBehaviour
         lineIndex = 0;
         Time.timeScale = 0f;
         StartCoroutine(ShowLine());
+        //cirrea el mensaje despues de un tiempo
+        StartCoroutine(CloseDialogue());
+    }
+
+    private IEnumerator CloseDialogue()
+    {
+        yield return new WaitForSecondsRealtime(3f);
+        didDialogueStart = false;
+        dialoguePanel.SetActive(false);
+        dialogueMark.SetActive(true);
+        Time.timeScale = 1f;
+        GameManager.instance.mostrarInventario(); 
     }
 
     private void NextDialogueLine()
