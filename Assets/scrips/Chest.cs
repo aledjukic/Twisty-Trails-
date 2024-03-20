@@ -5,7 +5,7 @@ using TwistyTrails.Assets.scrips;
 
 public class Chest : MonoBehaviour
 {
-
+    [SerializeField] private AudioClip chestSoundClip;
     public Item item;
 
     private bool isOnTrigger = false;
@@ -30,6 +30,8 @@ public class Chest : MonoBehaviour
              Debug.Log("El jugador ha presionado la tecla E.");
                 //añadir el objeto al inventario
                 GameManager.instance.AddItem(item);
+                //reproducir sonido
+                SoundFXManager.instance.PlaySoundFXCLip(chestSoundClip, transform, 1f);
                 //destruir el objeto
                 Destroy(gameObject);
         }

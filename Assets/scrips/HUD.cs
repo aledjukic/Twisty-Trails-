@@ -8,11 +8,12 @@ using UnityEngine.SceneManagement;
 public class HUD : MonoBehaviour
 {
     [SerializeField] private AudioClip deathSoundClip;
-
     [SerializeField] private AudioClip lowLifeClip;
     public Text textoLlaves;
     public GameObject[] vidas;
     private bool corazonParpadeando = false;
+    private bool sonidoLowLifeReproducido = false;
+    private bool sonidoDeathReproducido=false;
    
     public GameObject[] InventarySlots;
 
@@ -25,25 +26,42 @@ public class HUD : MonoBehaviour
         // Si el jugador está muerto, no hace falta que el corazón parpadee
         if (isDead)
         {
+            if (!sonidoDeathReproducido){
+                ReproducirSonidoMuerte();
+                sonidoDeathReproducido = true;
+            }
             corazonParpadeando = false;
-            StartCoroutine(mostrarGameOver());
-            
+            StartCoroutine(mostrarGameOver());     
         }
         else
         {
             if (vidas[1].activeSelf == false && vidas[2].activeSelf == false)
             {
                 corazonParpadeando = true;
+                if (!sonidoLowLifeReproducido)
+                {
+                    ReproducirSonidoVidaBaja();
+                    sonidoLowLifeReproducido = true;
+                }
                 StartCoroutine(ParpadearCorazon());
+                
             }
             else{
                 corazonParpadeando = false;
+                sonidoLowLifeReproducido = false;
                 vidas[0].SetActive(true);
                 //Debug.Log("No parpadea");
             }
         }
     }
 
+    private void ReproducirSonidoVidaBaja(){
+       SoundFXManager.instance.PlaySoundFXCLip(lowLifeClip, transform, 1f);
+    }
+    private void ReproducirSonidoMuerte(){
+       SoundFXManager.instance.PlaySoundFXCLip(deathSoundClip, transform, 1f);
+       SoundFXManager.instance.StopSoundFXClip(lowLifeClip);
+    }    
     IEnumerator mostrarGameOver(){
         yield return new WaitForSeconds(2);
         SceneManager.LoadScene("GameOver");

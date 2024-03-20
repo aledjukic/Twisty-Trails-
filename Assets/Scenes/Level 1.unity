@@ -533,6 +533,10 @@ PrefabInstance:
       value: Golden Key
       objectReference: {fileID: 0}
     - target: {fileID: 1811710278377203824, guid: 6baa2153a5ef852478f151ffc0114e91, type: 3}
+      propertyPath: chestSoundClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 2f088c923155e8048b22e455f4e998a4, type: 3}
+    - target: {fileID: 1811710278377203824, guid: 6baa2153a5ef852478f151ffc0114e91, type: 3}
       propertyPath: item.descripcion
       value: key
       objectReference: {fileID: 0}
@@ -713,7 +717,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deathSoundClip: {fileID: 8300000, guid: 97eaacf0f1d8e0f4b876df4fec401ea6, type: 3}
-  lowLifeClip: {fileID: 0}
+  lowLifeClip: {fileID: 8300000, guid: e7d219d6ce8316f4388ab52aa83cc0ea, type: 3}
   textoLlaves: {fileID: 990390446}
   vidas:
   - {fileID: 1613690886}
@@ -938,6 +942,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48bed051c6bc9c04e89342260e89b1be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  swordHittingClip: {fileID: 8300000, guid: 195510c7fb8bbb246a827b1f34d4bc96, type: 3}
   currentHealth: 9
   maxHealth: 9
 --- !u!1001 &628591991
@@ -1008,6 +1013,10 @@ PrefabInstance:
       propertyPath: typeDoor
       value: Silver
       objectReference: {fileID: 0}
+    - target: {fileID: 4929373908437909867, guid: 9ec36f15410f92640b203769f058489c, type: 3}
+      propertyPath: keySoundClip
+      value: 
+      objectReference: {fileID: 8300000, guid: eeb8e63fa501b1040b6e3c5b3466f8a5, type: 3}
     - target: {fileID: 7258622641685255295, guid: 9ec36f15410f92640b203769f058489c, type: 3}
       propertyPath: m_Name
       value: Puerta 1
@@ -1061,6 +1070,134 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 850.1554, y: 446.8277, z: -0.8729849}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &644612427
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 644612429}
+  - component: {fileID: 644612428}
+  m_Layer: 0
+  m_Name: Cancion
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &644612428
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 644612427}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: -351621270591444625, guid: 4aceadd7254d50b4fab1915133456a5d, type: 2}
+  m_audioClip: {fileID: 8300000, guid: 1a6b346c258ec80498a8f88396451fd9, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &644612429
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 644612427}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.92700005, y: 0.017000005, z: 0.95658994}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1146,6 +1283,10 @@ PrefabInstance:
       propertyPath: typeDoor
       value: Silver
       objectReference: {fileID: 0}
+    - target: {fileID: 7384323688440250881, guid: c88583a1653ce3a4e909fe7ba1178d7a, type: 3}
+      propertyPath: keySoundClip
+      value: 
+      objectReference: {fileID: 8300000, guid: eeb8e63fa501b1040b6e3c5b3466f8a5, type: 3}
     - target: {fileID: 8674536942016680469, guid: c88583a1653ce3a4e909fe7ba1178d7a, type: 3}
       propertyPath: m_Name
       value: Puerta 3
@@ -14175,6 +14316,10 @@ PrefabInstance:
       value: Silver Key 2
       objectReference: {fileID: 0}
     - target: {fileID: 1811710278377203824, guid: 6baa2153a5ef852478f151ffc0114e91, type: 3}
+      propertyPath: chestSoundClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 2f088c923155e8048b22e455f4e998a4, type: 3}
+    - target: {fileID: 1811710278377203824, guid: 6baa2153a5ef852478f151ffc0114e91, type: 3}
       propertyPath: item.descripcion
       value: key
       objectReference: {fileID: 0}
@@ -14304,6 +14449,10 @@ PrefabInstance:
       propertyPath: typeDoor
       value: 'Golden '
       objectReference: {fileID: 0}
+    - target: {fileID: 4929373908437909867, guid: 9ec36f15410f92640b203769f058489c, type: 3}
+      propertyPath: keySoundClip
+      value: 
+      objectReference: {fileID: 8300000, guid: eeb8e63fa501b1040b6e3c5b3466f8a5, type: 3}
     - target: {fileID: 7258622641685255295, guid: 9ec36f15410f92640b203769f058489c, type: 3}
       propertyPath: m_Name
       value: Puerta 4
@@ -16393,6 +16542,10 @@ PrefabInstance:
       value: Silver Key 3
       objectReference: {fileID: 0}
     - target: {fileID: 1811710278377203824, guid: 6baa2153a5ef852478f151ffc0114e91, type: 3}
+      propertyPath: chestSoundClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 2f088c923155e8048b22e455f4e998a4, type: 3}
+    - target: {fileID: 1811710278377203824, guid: 6baa2153a5ef852478f151ffc0114e91, type: 3}
       propertyPath: item.descripcion
       value: key
       objectReference: {fileID: 0}
@@ -16589,134 +16742,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!1 &1848393688
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1848393690}
-  - component: {fileID: 1848393689}
-  m_Layer: 0
-  m_Name: Cancion
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!82 &1848393689
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1848393688}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: -351621270591444625, guid: 4aceadd7254d50b4fab1915133456a5d, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 3bbaf983057edc44a8686ef4db0dcbaa, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
---- !u!4 &1848393690
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1848393688}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1868201597
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16733,6 +16758,10 @@ PrefabInstance:
       propertyPath: keyName
       value: Silver Key 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3246077100604104016, guid: 02a87f7c7df6bed40b227ba138c543ee, type: 3}
+      propertyPath: pickKeySoundClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 62302c7ec8f20a94c96ddbadfe1bc4dc, type: 3}
     - target: {fileID: 6075287075332318819, guid: 02a87f7c7df6bed40b227ba138c543ee, type: 3}
       propertyPath: m_SortingLayer
       value: 1
@@ -16879,6 +16908,10 @@ PrefabInstance:
       propertyPath: typeDoor
       value: Silver
       objectReference: {fileID: 0}
+    - target: {fileID: 7384323688440250881, guid: c88583a1653ce3a4e909fe7ba1178d7a, type: 3}
+      propertyPath: keySoundClip
+      value: 
+      objectReference: {fileID: 8300000, guid: eeb8e63fa501b1040b6e3c5b3466f8a5, type: 3}
     - target: {fileID: 8674536942016680469, guid: c88583a1653ce3a4e909fe7ba1178d7a, type: 3}
       propertyPath: m_Name
       value: Puerta 2
@@ -16957,6 +16990,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1907482096909065053, guid: dbfb95b1377360044b627ef32a2a8ab2, type: 3}
+      propertyPath: swordHittingClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 195510c7fb8bbb246a827b1f34d4bc96, type: 3}
     - target: {fileID: 2720590474780261384, guid: dbfb95b1377360044b627ef32a2a8ab2, type: 3}
       propertyPath: homePos
       value: 
@@ -17084,4 +17121,4 @@ SceneRoots:
   - {fileID: 1708367170}
   - {fileID: 2116994860}
   - {fileID: 801046035}
-  - {fileID: 1848393690}
+  - {fileID: 644612429}
