@@ -32,9 +32,24 @@ public class StoreSlot : MonoBehaviour, IPointerClickHandler
         }
     }
 
+    IEnumerator ShowAndHideDialogue(DialogueStore dialogue)
+    {
+        // Muestra el diálogo
+        dialogue.showDialogue();
+
+        // Espera 3 segundos
+        yield return new WaitForSeconds(1f);
+
+        // Oculta el diálogo
+        dialogue.hideDialogue();
+    }
+
     // Este método se llama cuando se hace clic en el slot
     public void OnPointerClick(PointerEventData eventData)
     {
+        //obtiene el componente de dialogo
+        GameObject dialogueGameObject = GameObject.Find("vendedor");
+        DialogueStore dialogue = dialogueGameObject.GetComponent<DialogueStore>();
         // Si el jugador tiene suficiente dinero para comprar el item
         if (GameManager.instance.score >= precio)
         {
@@ -49,6 +64,8 @@ public class StoreSlot : MonoBehaviour, IPointerClickHandler
         else
         {
             Debug.Log("No tienes suficiente dinero para comprar este item.");
+            //muestra el dialogo de que no tienes suficiente dinero
+            StartCoroutine(ShowAndHideDialogue(dialogue));
             return;
         }
 
@@ -59,10 +76,14 @@ public class StoreSlot : MonoBehaviour, IPointerClickHandler
                 GameManager.instance.restoreVida();
                 break;
             case "Vida Extra":
+                GameManager.instance.createVida();
                 Debug.Log("Vida Extra");
                 break;
             case "Daño Extra":
-
+                //busca el hijo del jugador que tiene el script HurtEnemy
+                GameObject player = GameObject.Find("Player");
+                HurtEnemy hurtEnemy = player.GetComponentInChildren<HurtEnemy>();
+                hurtEnemy.damage += 1;
                 Debug.Log("Daño Extra");
                 break;
             case "Velocidad":

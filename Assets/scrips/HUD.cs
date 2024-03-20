@@ -16,7 +16,21 @@ public class HUD : MonoBehaviour
     public Sprite voidPanel;
 
     private bool isDead;
+    private int actualVidas;
 
+    public void Start()
+    {
+        isDead = false;
+        actualVidas = 3;
+        //desactiva los corazones a partir del segundo elemento
+        for (int i = 1; i < vidas.Length; i++)
+        {
+            if(i > 2)
+            {
+                vidas[i].SetActive(false);
+            }
+        }
+    }
 
     public void Update()
     {
@@ -73,6 +87,18 @@ public class HUD : MonoBehaviour
         InventarySlots[index].GetComponent<SlotUsed>().isUsed = false;
     }
     
+    public void createVida(int index)
+    {
+        //cura todas las vidas y añade 1
+        actualVidas++;
+        vidas[actualVidas - 1].SetActive(true);
+        //setea en true la vidas anteriores
+        for (int i = 0; i < actualVidas - 1; i++)
+        {
+            vidas[i].SetActive(true);
+        }
+    }
+
     public void UpdateScore(int keys)
     {
         if (textoLlaves != null)

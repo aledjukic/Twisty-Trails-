@@ -21,10 +21,8 @@ public class DialogueStore : MonoBehaviour
         audioSource.clip = narratorVoice;
     }
 
-    void Update()
+    public void showDialogue()
     {
-        if(isPlayerInRange && Input.GetButtonDown("Fire1") && false)
-        {
             if (!didDialogueStart)
             {
                 GameManager.instance.ocultarInventario();
@@ -39,6 +37,18 @@ public class DialogueStore : MonoBehaviour
                 StopAllCoroutines();
                 dialogueText.text = dialogueLines[lineIndex];
             }
+        
+    }
+
+    public void hideDialogue()
+    {
+        if(didDialogueStart)
+        {
+            didDialogueStart = false;
+            dialoguePanel.SetActive(false);
+            dialogueMark.SetActive(true);
+            Time.timeScale = 1f;
+            GameManager.instance.mostrarInventario(); 
         }
     }
 
