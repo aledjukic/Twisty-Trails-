@@ -5,12 +5,9 @@ using TwistyTrails.Assets.scrips;
 
 public class LLave : MonoBehaviour
 {
-<<<<<<< HEAD
+    [SerializeField] private AudioClip pickKeySoundClip;
     private SpriteRenderer sr;
     private BoxCollider2D boxcollider;
-=======
-    [SerializeField] private AudioClip pickKeySoundClip;
->>>>>>> 11f4699edc8a0756d03bea88c11e62949e0d8050
     public string keyName;
 
     public Sprite spriteRenderer;
