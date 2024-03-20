@@ -16698,6 +16698,7 @@ GameObject:
   - component: {fileID: 1648642869}
   - component: {fileID: 1648642868}
   - component: {fileID: 1648642867}
+  - component: {fileID: 1648642870}
   m_Layer: 0
   m_Name: HitBox
   m_TagString: Untagged
@@ -16733,6 +16734,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 9
+  thrust: 5
 --- !u!61 &1648642868
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16830,6 +16832,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1648642870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1648642865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4556f10d4710cd49875003a31e5cce8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thrust: 5
 --- !u!1 &1708367169
 GameObject:
   m_ObjectHideFlags: 0
