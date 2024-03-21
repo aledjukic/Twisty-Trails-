@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using TMPro;
 
-public class Dialogue : MonoBehaviour
+public class DialogueStore : MonoBehaviour
 {
     [SerializeField] private GameObject dialogueMark;
     [SerializeField] private GameObject dialoguePanel;
@@ -21,12 +21,11 @@ public class Dialogue : MonoBehaviour
         audioSource.clip = narratorVoice;
     }
 
-    void Update()
+    public void showDialogue()
     {
-        if(isPlayerInRange && (Input.GetButtonDown("Fire1") || Input.GetKeyDown(KeyCode.F)))
-        {
             if (!didDialogueStart)
             {
+                GameManager.instance.ocultarInventario();
                 StartDialogue();
             }
             else if(dialogueText.text == dialogueLines[lineIndex])
@@ -38,6 +37,18 @@ public class Dialogue : MonoBehaviour
                 StopAllCoroutines();
                 dialogueText.text = dialogueLines[lineIndex];
             }
+        
+    }
+
+    public void hideDialogue()
+    {
+        if(didDialogueStart)
+        {
+            didDialogueStart = false;
+            dialoguePanel.SetActive(false);
+            dialogueMark.SetActive(true);
+            Time.timeScale = 1f;
+            GameManager.instance.mostrarInventario(); 
         }
     }
 
@@ -49,6 +60,18 @@ public class Dialogue : MonoBehaviour
         lineIndex = 0;
         Time.timeScale = 0f;
         StartCoroutine(ShowLine());
+        //cirrea el mensaje despues de un tiempo
+        StartCoroutine(CloseDialogue());
+    }
+
+    private IEnumerator CloseDialogue()
+    {
+        yield return new WaitForSecondsRealtime(3f);
+        didDialogueStart = false;
+        dialoguePanel.SetActive(false);
+        dialogueMark.SetActive(true);
+        Time.timeScale = 1f;
+        GameManager.instance.mostrarInventario(); 
     }
 
     private void NextDialogueLine()
@@ -64,7 +87,7 @@ public class Dialogue : MonoBehaviour
             dialoguePanel.SetActive(false);
             dialogueMark.SetActive(true);
             Time.timeScale = 1f;
-            GameManager.instance.mostrarInventario(); //aqui se a�ade linea de codigo para bloquear el dialogo. paralel�pipedo
+            GameManager.instance.mostrarInventario(); 
         }
     }
 
@@ -76,9 +99,6 @@ public class Dialogue : MonoBehaviour
         {
             
             dialogueText.text += ch;
-            if (charIndex % charsToSound == 0){
-                audioSource.Play();
-            }
             charIndex ++;
             yield return new WaitForSecondsRealtime(typingTime);
         }
