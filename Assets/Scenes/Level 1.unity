@@ -2585,6 +2585,10 @@ PrefabInstance:
       value: Silver
       objectReference: {fileID: 0}
     - target: {fileID: 4929373908437909867, guid: 9ec36f15410f92640b203769f058489c, type: 3}
+      propertyPath: doorLocked
+      value: 
+      objectReference: {fileID: 8300000, guid: f8b92d25068e4ed44913683614b460c3, type: 3}
+    - target: {fileID: 4929373908437909867, guid: 9ec36f15410f92640b203769f058489c, type: 3}
       propertyPath: keySoundClip
       value: 
       objectReference: {fileID: 8300000, guid: eeb8e63fa501b1040b6e3c5b3466f8a5, type: 3}
@@ -3332,6 +3336,10 @@ PrefabInstance:
       propertyPath: typeDoor
       value: Silver
       objectReference: {fileID: 0}
+    - target: {fileID: 7384323688440250881, guid: c88583a1653ce3a4e909fe7ba1178d7a, type: 3}
+      propertyPath: doorLocked
+      value: 
+      objectReference: {fileID: 8300000, guid: f8b92d25068e4ed44913683614b460c3, type: 3}
     - target: {fileID: 7384323688440250881, guid: c88583a1653ce3a4e909fe7ba1178d7a, type: 3}
       propertyPath: keySoundClip
       value: 
@@ -18826,6 +18834,10 @@ PrefabInstance:
       value: 'Golden '
       objectReference: {fileID: 0}
     - target: {fileID: 4929373908437909867, guid: 9ec36f15410f92640b203769f058489c, type: 3}
+      propertyPath: doorLocked
+      value: 
+      objectReference: {fileID: 8300000, guid: f8b92d25068e4ed44913683614b460c3, type: 3}
+    - target: {fileID: 4929373908437909867, guid: 9ec36f15410f92640b203769f058489c, type: 3}
       propertyPath: keySoundClip
       value: 
       objectReference: {fileID: 8300000, guid: eeb8e63fa501b1040b6e3c5b3466f8a5, type: 3}
@@ -23768,6 +23780,10 @@ PrefabInstance:
       propertyPath: typeDoor
       value: Silver
       objectReference: {fileID: 0}
+    - target: {fileID: 7384323688440250881, guid: c88583a1653ce3a4e909fe7ba1178d7a, type: 3}
+      propertyPath: doorLocked
+      value: 
+      objectReference: {fileID: 8300000, guid: f8b92d25068e4ed44913683614b460c3, type: 3}
     - target: {fileID: 7384323688440250881, guid: c88583a1653ce3a4e909fe7ba1178d7a, type: 3}
       propertyPath: keySoundClip
       value: 
