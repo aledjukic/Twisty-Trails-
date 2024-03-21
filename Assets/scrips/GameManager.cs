@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     public int score = 0;
 
     private int vidas = 3;
+    private int maxVidas = 3;
 
     public PlayerController player;
 
@@ -23,6 +24,8 @@ public class GameManager : MonoBehaviour
     public void Start()
     {
         items = new Item[3];
+        score = 0;
+        hud.UpdateScore(this.score);
     }
 
     public void AddItem(Item item)
@@ -53,6 +56,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void SpeedIncrease(float speed)
+    {
+        player.movSpeed += speed;
+    }
+
     //verifica si tienes el objeto en el inventario// verifica si tienes el objeto en el inventario
     public bool CheckItem(Item item)
     {
@@ -63,7 +71,6 @@ public class GameManager : MonoBehaviour
                 return true;
             }
         }
-        Debug.Log("No tienes el objeto en el inventario");
         return false;
     }
 
@@ -87,7 +94,7 @@ public class GameManager : MonoBehaviour
 
     public void restoreVida()
     {
-        if (vidas < 3)
+        if (vidas < maxVidas)
         {
             vidas++;
             hud.activeVida(vidas - 1);
@@ -98,6 +105,16 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void createVida()
+    {   
+        //recupera todas las vidas
+        vidas = maxVidas;
+        //inserta un nuevo corazon en el hud y aumenta el limite de vidas
+        hud.createVida(vidas);
+        vidas++;
+        maxVidas++;
+    }
+
     public void lostVida()
     {
         if (vidas == 0)
@@ -106,7 +123,6 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("pierde una vida");
             vidas--;
             hud.desctiveVida(vidas);
             player.takeDamage();
@@ -121,7 +137,11 @@ public class GameManager : MonoBehaviour
             player.killPlayer();
             hud.isDeadPlayer();
         }
-        Debug.Log("Vidas: " + vidas);
+    }
+
+    public int getScore()
+    {
+        return score;
     }
 
     public void ocultarInventario()
@@ -134,7 +154,6 @@ public class GameManager : MonoBehaviour
         hud.mostrarInventario();
     }
 
-   
 }
 // Path: Assets/scrips/Item.cs
 // Compare this snippet from Assets/scrips/Player.cs:
