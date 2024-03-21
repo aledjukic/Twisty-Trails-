@@ -49,6 +49,7 @@ public class EnemyHealth : MonoBehaviour
     {
         currentHealth -= damage;
         SoundFXManager.instance.PlaySoundFXCLip(swordHittingClip, transform, 1f);
+        Debug.Log("Slime health" + damage);
 
         if(currentHealth <= 0)
         {
