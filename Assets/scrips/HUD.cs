@@ -33,6 +33,7 @@ public class HUD : MonoBehaviour
             corazonParpadeando = false;
             StartCoroutine(mostrarGameOver());     
         }
+        
         else
         {
             if (vidas[1].activeSelf == false && vidas[2].activeSelf == false)
@@ -47,6 +48,7 @@ public class HUD : MonoBehaviour
                 
             }
             else{
+
                 corazonParpadeando = false;
                 sonidoLowLifeReproducido = false;
                 vidas[0].SetActive(true);
