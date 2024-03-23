@@ -62,6 +62,7 @@ public class HUD : MonoBehaviour
                 
             }
             else{
+                SoundFXManager.instance.StopSoundFXClip(lowLifeClip);
                 corazonParpadeando = false;
                 sonidoLowLifeReproducido = false;
                 vidas[0].SetActive(true);

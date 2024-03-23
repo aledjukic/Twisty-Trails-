@@ -512,6 +512,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: cofreLujosoGold
       objectReference: {fileID: 0}
+    - target: {fileID: 7266989238277800042, guid: 6baa2153a5ef852478f151ffc0114e91, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8736388187726469306, guid: 6baa2153a5ef852478f151ffc0114e91, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.051
@@ -3210,7 +3214,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88f1465142ca72245bf382a877b5b97c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hud: {fileID: 0}
+  hud: {fileID: 1587215615}
   score: 0
   takeDamageClip: {fileID: 8300000, guid: 01f965ee6921df14193c11b9150e79b1, type: 3}
   player: {fileID: 2082033860}
@@ -3335,6 +3339,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1482991216}
     m_Modifications:
+    - target: {fileID: -3363923977078207001, guid: 3fe1887db7bd18c4094087bb773f999c, type: 3}
+      propertyPath: keyName
+      value: Golden Key 1
+      objectReference: {fileID: 0}
     - target: {fileID: 341303892196406924, guid: 3fe1887db7bd18c4094087bb773f999c, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.09109893
@@ -3345,11 +3353,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 341303892196406924, guid: 3fe1887db7bd18c4094087bb773f999c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.278
+      value: -2.656
       objectReference: {fileID: 0}
     - target: {fileID: 341303892196406924, guid: 3fe1887db7bd18c4094087bb773f999c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.377
+      value: -0.509
       objectReference: {fileID: 0}
     - target: {fileID: 341303892196406924, guid: 3fe1887db7bd18c4094087bb773f999c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3389,7 +3397,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2370710941900187182, guid: 3fe1887db7bd18c4094087bb773f999c, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8434751141351309088, guid: 3fe1887db7bd18c4094087bb773f999c, type: 3}
       propertyPath: m_SortingLayer
@@ -13079,7 +13087,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -3047629136978471887, guid: 92f6158d6f555a640b668143f9fff24e, type: 3}
       propertyPath: keyName
-      value: Golden Key
+      value: Golden Key 1
       objectReference: {fileID: 0}
     - target: {fileID: -3047629136978471887, guid: 92f6158d6f555a640b668143f9fff24e, type: 3}
       propertyPath: doorOpen
@@ -13087,7 +13095,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: f2cace6dfcd6d0246aaa6918e0bc5778, type: 3}
     - target: {fileID: -3047629136978471887, guid: 92f6158d6f555a640b668143f9fff24e, type: 3}
       propertyPath: typeDoor
-      value: Golden
+      value: Golden Key
       objectReference: {fileID: 0}
     - target: {fileID: -3047629136978471887, guid: 92f6158d6f555a640b668143f9fff24e, type: 3}
       propertyPath: doorLocked
@@ -66471,11 +66479,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5236642174345994706, guid: fb08ee6c31fbcac46acea64c7cc391c7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.476
+      value: 0.428
       objectReference: {fileID: 0}
     - target: {fileID: 5236642174345994706, guid: fb08ee6c31fbcac46acea64c7cc391c7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.866
+      value: -0.849
       objectReference: {fileID: 0}
     - target: {fileID: 5236642174345994706, guid: fb08ee6c31fbcac46acea64c7cc391c7, type: 3}
       propertyPath: m_LocalPosition.z
