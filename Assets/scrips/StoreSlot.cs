@@ -54,7 +54,7 @@ public class StoreSlot : MonoBehaviour, IPointerClickHandler
         if (GameManager.instance.score >= precio)
         {
             // Restar el precio del item al score del jugador
-            GameManager.instance.score -= precio;
+            GameManager.instance.UpdateScore(-precio);
             GameManager.instance.hud.UpdateScore(GameManager.instance.score);
 
             //cierra la tienda

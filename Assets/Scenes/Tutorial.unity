@@ -2758,6 +2758,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hud: {fileID: 1204842822}
+  statsData: {fileID: 11400000, guid: a0c74fef93b0b6f40a932a2f64e5f727, type: 2}
   score: 0
   takeDamageClip: {fileID: 8300000, guid: 01f965ee6921df14193c11b9150e79b1, type: 3}
   player: {fileID: 876045168}
@@ -8932,6 +8933,7 @@ MonoBehaviour:
   - {fileID: 2145231715}
   - {fileID: 1372431696}
   - {fileID: 1307697871}
+  statsData: {fileID: 11400000, guid: a0c74fef93b0b6f40a932a2f64e5f727, type: 2}
   InventarySlots:
   - {fileID: 1370485304}
   - {fileID: 355591042}

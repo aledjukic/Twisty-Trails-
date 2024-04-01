@@ -11,6 +11,7 @@ public class HUD : MonoBehaviour
     [SerializeField] private AudioClip lowLifeClip;
     public Text textoLlaves;
     public GameObject[] vidas;
+    public StatsData statsData;
     private bool corazonParpadeando = false;
     private bool sonidoLowLifeReproducido = false;
     private bool sonidoDeathReproducido=false;
@@ -26,10 +27,12 @@ public class HUD : MonoBehaviour
     {
         isDead = false;
         actualVidas = 3;
-        //desactiva los corazones a partir del segundo elemento
+        //desactiva los corazones a partir del segundo elemento dependiendo de maxVidas de statsData
+        int maxVidas = statsData.MaxVidas; 
+
         for (int i = 1; i < vidas.Length; i++)
         {
-            if(i > 2)
+            if(i > maxVidas-1)
             {
                 vidas[i].SetActive(false);
             }
@@ -118,6 +121,7 @@ public class HUD : MonoBehaviour
     public void createVida(int index)
     {
         //cura todas las vidas y añade 1
+        //Debug.Log("Vida añadida");
         actualVidas++;
         vidas[actualVidas - 1].SetActive(true);
         //setea en true la vidas anteriores

@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
 
     public static GameManager instance { get; private set; }
 
+    [SerializeField] private StatsData statsData;
+
     //objetos guardados
     public int score = 0;
 
@@ -26,8 +28,24 @@ public class GameManager : MonoBehaviour
     public void Start()
     {
         items = new Item[3];
-        score = 0;
         hud.UpdateScore(this.score);
+        //setea los stats iniciales 
+        int newVidas = statsData.Vidas;
+        int newMaxVidas = statsData.MaxVidas;
+        int newDamage = statsData.Damage;
+        //player.setDamage(newDamage);
+        int newHudVidas = newMaxVidas - 3;
+        for (int i = 0; i < newHudVidas; i++)
+        {
+            Debug.Log("Vida: " + i);
+            createVida();
+            //hud.activeVida(i+3);
+        }
+        float newSpeed = statsData.Speed;
+        player.movSpeed = newSpeed;
+        int newScore = statsData.Score;
+        Debug.Log("Score: " + newScore);
+        UpdateScore(newScore);
     }
 
     public void AddItem(Item item)
@@ -60,6 +78,7 @@ public class GameManager : MonoBehaviour
 
     public void SpeedIncrease(float speed)
     {
+        statsData.SetSpeed(player.movSpeed + speed);
         player.movSpeed += speed;
     }
 
@@ -80,6 +99,7 @@ public class GameManager : MonoBehaviour
     {
         this.score += score;
         hud.UpdateScore(this.score);
+        statsData.SetScore(this.score);
     }
 
     public void Awake()
@@ -87,10 +107,12 @@ public class GameManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
+            //DontDestroyOnLoad(player);
         }
         else
         {
             Debug.Log("GameManager instance already exists");
+            //Destroy(player);
         }
     }
 
@@ -115,6 +137,8 @@ public class GameManager : MonoBehaviour
         hud.createVida(vidas);
         vidas++;
         maxVidas++;
+        statsData.SetMaxVidas(maxVidas);
+        statsData.SetVidas(vidas);
     }
 
     public void lostVida()
